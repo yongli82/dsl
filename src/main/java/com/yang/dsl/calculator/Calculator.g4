@@ -1,9 +1,9 @@
-grammar Expression;
+grammar Calculator;
 /* 增加赋值语句，最后一行表达式返回的值为最终值 */
 
-root: (stat)* expression;
+root: (assign)* expression;
 
-stat: variable '=' expression NEWLINE     # assign
+assign: variable '=' expression (';')? NEWLINE     # assignVariable
    |  NEWLINE  # blank
    ;
 

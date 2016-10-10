@@ -1,4 +1,4 @@
-package com.yang.dsl;// Generated from /Users/yangyongli/Projects/antlr/src/main/java/Expression.g4 by ANTLR 4.5.3
+package com.yang.dsl.singleline;// Generated from /Users/yangyongli/Projects/antlr/src/main/java/Expression.g4 by ANTLR 4.5.3
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**

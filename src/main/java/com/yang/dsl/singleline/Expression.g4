@@ -1,11 +1,6 @@
 grammar Expression;
-/* 增加赋值语句，最后一行表达式返回的值为最终值 */
 
-root: (stat)* expression;
-
-stat: variable '=' expression NEWLINE     # assign
-   |  NEWLINE  # blank
-   ;
+root: expression;
 
 expression
     : left=expression op=(PLUS | MINUS) right=multiplyingExpression #plusOrMinus
@@ -76,6 +71,7 @@ LETTER
     : ('a' .. 'z') | ('A' .. 'Z')
     ;
 
+
 DIGIT
     : ('0' .. '9')
     ;
@@ -84,9 +80,6 @@ COMMA
     : ','
     ;
 
-NEWLINE
-    : '\r'? '\n'
-    ;
 WS
-    : [ \t]+ -> skip
+    : [ \r\n\t] + -> channel (HIDDEN)
     ;

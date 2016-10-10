@@ -1,4 +1,4 @@
-package com.yang.dsl;
+package com.yang.dsl.singleline;
 
 import java.math.BigDecimal;
 import java.util.HashMap;
