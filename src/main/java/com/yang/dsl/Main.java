@@ -13,7 +13,7 @@ import java.math.BigDecimal;
 public class Main {
 
     public static void main(String[] args) {
-        String someLangSourceCode = "SUM(1,2,3,4,5,6,7,8,9,10)";
+        String someLangSourceCode = "1 + 2 - 3 + 4 * SUM(1,2,3,4,5,6,7,8,9,10) / 8";
         CharStream charStream = new ANTLRInputStream(someLangSourceCode);
         ExpressionLexer lexer = new ExpressionLexer(charStream);
         TokenStream tokens = new CommonTokenStream(lexer);
