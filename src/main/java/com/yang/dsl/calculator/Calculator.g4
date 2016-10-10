@@ -3,9 +3,8 @@ grammar Calculator;
 
 root: (assign)* expression;
 
-assign: variable '=' expression (';')? NEWLINE     # assignVariable
-   |  NEWLINE  # blank
-   ;
+assign: variable '=' expression (';' | NEWLINE)+      # assignVariable
+    ;
 
 expression
     : left=expression op=(PLUS | MINUS) right=multiplyingExpression #plusOrMinus
@@ -85,7 +84,7 @@ COMMA
     ;
 
 NEWLINE
-    : '\r'? '\n'
+    : '\r'? '\n' -> skip
     ;
 WS
     : [ \t]+ -> skip
