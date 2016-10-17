@@ -27,8 +27,8 @@ public class AccountingParser extends Parser {
 		INT=54, INTERFACE=55, LONG=56, NATIVE=57, NEW=58, PACKAGE=59, PRIVATE=60, 
 		PROTECTED=61, PUBLIC=62, RETURN=63, SHORT=64, STATIC=65, STRICTFP=66, 
 		SUPER=67, SWITCH=68, SYNCHRONIZED=69, THIS=70, THROW=71, THROWS=72, TRANSIENT=73, 
-		TRY=74, VOID=75, VOLATILE=76, WHILE=77, AT=78, ELLIPSIS=79, WS=80, COMMENT=81, 
-		LINE_COMMENT=82;
+		TRY=74, VOID=75, VOLATILE=76, WHILE=77, JavaLetter=78, JavaLetterOrDigit=79, 
+		AT=80, ELLIPSIS=81, WS=82, COMMENT=83, LINE_COMMENT=84;
 	public static final int
 		RULE_start = 0, RULE_methodBody = 1, RULE_block = 2, RULE_blockStatement = 3, 
 		RULE_statement = 4, RULE_forControl = 5, RULE_forInit = 6, RULE_forUpdate = 7, 
@@ -54,7 +54,7 @@ public class AccountingParser extends Parser {
 		"'long'", "'native'", "'new'", "'package'", "'private'", "'protected'", 
 		"'public'", "'return'", "'short'", "'static'", "'strictfp'", "'super'", 
 		"'switch'", "'synchronized'", "'this'", "'throw'", "'throws'", "'transient'", 
-		"'try'", "'void'", "'volatile'", "'while'", "'@'", "'...'"
+		"'try'", "'void'", "'volatile'", "'while'", null, null, "'@'", "'...'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
 		null, null, null, null, null, null, null, null, null, null, null, null, 
@@ -66,7 +66,8 @@ public class AccountingParser extends Parser {
 		"INT", "INTERFACE", "LONG", "NATIVE", "NEW", "PACKAGE", "PRIVATE", "PROTECTED", 
 		"PUBLIC", "RETURN", "SHORT", "STATIC", "STRICTFP", "SUPER", "SWITCH", 
 		"SYNCHRONIZED", "THIS", "THROW", "THROWS", "TRANSIENT", "TRY", "VOID", 
-		"VOLATILE", "WHILE", "AT", "ELLIPSIS", "WS", "COMMENT", "LINE_COMMENT"
+		"VOLATILE", "WHILE", "JavaLetter", "JavaLetterOrDigit", "AT", "ELLIPSIS", 
+		"WS", "COMMENT", "LINE_COMMENT"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -1609,7 +1610,7 @@ public class AccountingParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3T\u00d6\4\2\t\2\4"+
+		"\3\u0430\ud6d1\u8206\uad2d\u4417\uaef1\u8d80\uaadd\3V\u00d6\4\2\t\2\4"+
 		"\3\t\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\4\t\t\t\4\n\t\n\4\13\t"+
 		"\13\4\f\t\f\4\r\t\r\4\16\t\16\4\17\t\17\4\20\t\20\4\21\t\21\4\22\t\22"+
 		"\4\23\t\23\4\24\t\24\4\25\t\25\3\2\3\2\3\3\3\3\3\4\7\4\60\n\4\f\4\16\4"+

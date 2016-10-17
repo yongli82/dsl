@@ -4,6 +4,8 @@ import org.junit.Before;
 import org.junit.Test;
 
 import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.Map;
 
 import static org.junit.Assert.*;
 
@@ -61,6 +63,27 @@ public class MyAccountingTest {
                 "if (a == 6)\n" +
                 "{ return 10;}" +
                 " else { return 20;}";
+        BigDecimal result = m.calculate(e, null);
+        assertEquals(new BigDecimal("20"), result);
+    }
+
+
+    @Test
+    public void calculate7() throws Exception {
+        Map<String, BigDecimal> map = new HashMap<String, BigDecimal>();
+        map.put("工资", new BigDecimal("10000"));
+        map.put("补贴", new BigDecimal("200"));
+        map.put("税率", new BigDecimal("0.01"));
+        map.put("养老金上限", new BigDecimal("8000"));
+        map.put("养老金下限", new BigDecimal("2000"));
+        map.put("养老金比率", new BigDecimal("0.08"));
+        String e = "税 = 工资 * 税率\n" +
+                "养老金基数 = 工资\n" +
+                "if(工资 > 养老金上限) { 养老金基数=养老金上限}\n" +
+                "if(工资 < 养老金下限) { 养老金基数=养老金下限}\n" +
+                "应付薪水 = 工资 + 补贴 - 税 - 养老金\n" +
+                 "return 应付薪水";
+        System.out.println(e);
         BigDecimal result = m.calculate(e, null);
         assertEquals(new BigDecimal("20"), result);
     }

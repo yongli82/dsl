@@ -205,9 +205,10 @@ WHILE         : 'while';
 
 identifier
     :  LETTER (LETTER | DIGIT)*
+    //|  JavaLetter (JavaLetterOrDigit)*
     ;
 
-fragment
+
 JavaLetter
     :   [a-zA-Z$_] // these are the "java letters" below 0x7F
     |   // covers all characters above 0x7F which are not a surrogate
@@ -218,7 +219,6 @@ JavaLetter
         {Character.isJavaIdentifierStart(Character.toCodePoint((char)_input.LA(-2), (char)_input.LA(-1)))}?
     ;
 
-fragment
 JavaLetterOrDigit
     :   [a-zA-Z0-9$_] // these are the "java letters or digits" below 0x7F
     |   // covers all characters above 0x7F which are not a surrogate

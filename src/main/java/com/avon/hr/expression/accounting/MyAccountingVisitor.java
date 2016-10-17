@@ -1,7 +1,5 @@
 package com.avon.hr.expression.accounting;
 
-import com.yang.dsl.calculator.CalculatorLexer;
-import org.antlr.v4.runtime.Token;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 import org.antlr.v4.runtime.tree.RuleNode;
 import org.apache.log4j.Logger;
@@ -78,11 +76,15 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      * @return the visitor result
      */
     public BigDecimal visitIfelseStatement(AccountingParser.IfelseStatementContext ctx) {
+        logger.debug("visitIfelseStatement");
         AccountingParser.JudgeExpressionContext judgeExpressionContext = ctx.judgeExpression();
         BigDecimal judge = visit(judgeExpressionContext);
-        if(judge.equals(BigDecimal.ONE)){
+        logger.debug("judge(" + judgeExpressionContext.getText() + "):" + judge.equals(BigDecimal.ONE));
+        if (judge.equals(BigDecimal.ONE)) {
+            logger.debug("yesblock");
             return visit(ctx.yesblock);
-        }else{
+        } else {
+            logger.debug("noblock");
             return visit(ctx.noblock);
         }
     }
@@ -112,18 +114,20 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
         //return 退出解释器怎么实现？
         //结束树遍历，把值返回
         BigDecimal value = visit(expression);
+        logger.debug("return value=" + value);
         this.isTerminal = true;
         return value;
     }
 
     /**
      * 处理return，if等跳出树遍历的分支
+     *
      * @param node
      * @param currentResult
      * @return
      */
     protected boolean shouldVisitNextChild(RuleNode node, BigDecimal currentResult) {
-        if(isTerminal){
+        if (isTerminal) {
             logger.debug("isTerminal");
             return true;
         }
@@ -212,7 +216,8 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
         return null;
     }
 
-    /**判断语句
+    /**
+     * 判断语句
      * BigDecimal.ONE == true
      * BigDecimal.ZREO == false
      * Visit a parse tree produced by {@link AccountingParser#judgeExpression}.
@@ -226,27 +231,28 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
         String op = ctx.op.getText();
         boolean result = false;
         int compareTo = left.compareTo(right);
-        if(op.equals("==")){
+        if (op.equals("==")) {
             result = compareTo == 0;
-        }else if (op.equals(">")){
+        } else if (op.equals(">")) {
             result = compareTo > 0;
-        }else if (op.equals(">=")){
+        } else if (op.equals(">=")) {
             result = compareTo >= 0;
-        }else if (op.equals("<")){
+        } else if (op.equals("<")) {
             result = compareTo < 0;
-        }else if (op.equals("<=")){
+        } else if (op.equals("<=")) {
             result = compareTo <= 0;
-        }else if (op.equals("!=")){
+        } else if (op.equals("!=")) {
             result = compareTo != 0;
-        }else if (op.equals("<>")){
+        } else if (op.equals("<>")) {
             result = compareTo != 0;
-        }else {
+        } else {
             throw new RuntimeException("Unsupported compare operator [" + op + "].");
         }
-
-        if(result){
+        ctx.result = result;
+        logger.debug("ctx.result=" + ctx.result);
+        if (result) {
             return BigDecimal.ONE;
-        }else{
+        } else {
             return BigDecimal.ZERO;
         }
     }
@@ -259,7 +265,7 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      * @return the visitor result
      */
     public BigDecimal visitAssignVariable(AccountingParser.AssignVariableContext ctx) {
-        logger.debug("visitAssignVariable");
+        logger.debug("visitAssignVariable:" + ctx.getText());
         AccountingParser.IdentifierContext identifier = ctx.identifier();
         String variableText = identifier.getText();
         AccountingParser.ExpressionContext expression = ctx.expression();
@@ -287,13 +293,18 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      * @return the visitor result
      */
     public BigDecimal visitPlusOrMinus(AccountingParser.PlusOrMinusContext ctx) {
+        logger.debug("visitPlusOrMinus:" + ctx.getText());
         BigDecimal leftValue = visit(ctx.left);
         BigDecimal rightValue = visit(ctx.right);
-        if (ctx.op.getType() == CalculatorLexer.PLUS) {
-            return leftValue.add(rightValue);
+        BigDecimal result = null;
+        if (ctx.op.getType() == AccountingParser.PLUS) {
+            result = leftValue.add(rightValue);
         } else {
-            return leftValue.subtract(rightValue);
+            result = leftValue.subtract(rightValue);
         }
+
+        logger.debug(ctx.getText() + " : " + result);
+        return result;
     }
 
     /**
@@ -315,13 +326,18 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      * @return the visitor result
      */
     public BigDecimal visitTimesOrDiv(AccountingParser.TimesOrDivContext ctx) {
+        logger.debug("visitTimesOrDiv:" + ctx.getText());
         BigDecimal leftValue = visit(ctx.left);
         BigDecimal rightValue = visit(ctx.right);
-        if (ctx.op.getType() == CalculatorLexer.TIMES) {
-            return leftValue.multiply(rightValue);
+        BigDecimal result = null;
+        if (ctx.op.getType() == AccountingParser.TIMES) {
+            result = leftValue.multiply(rightValue);
         } else {
-            return leftValue.divide(rightValue);
+            result = leftValue.divide(rightValue);
         }
+
+        logger.debug(ctx.getText() + " : " + result);
+        return result;
     }
 
     /**
