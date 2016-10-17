@@ -94,12 +94,6 @@ public interface AccountingVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitExpressionList(AccountingParser.ExpressionListContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link AccountingParser#parExpression}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitParExpression(AccountingParser.ParExpressionContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link AccountingParser#judgeExpression}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

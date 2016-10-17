@@ -19,7 +19,7 @@ methodBody
     ;
 
 block
-    : blockStatement*
+    : (blockStatement | ';' | NEWLINE)*
     ;
 
 blockStatement
@@ -31,9 +31,9 @@ blockStatement
 statement
     :   'if' '(' judgeExpression ')' '{' yesblock=block '}' ('else {' noblock=block '}')? #ifelseStatement
     |   'for' '(' forControl ')' statement #forStatement
-    |   'return' expression? ';' #returnStatement
-    |   'break' identifier? ';' #breakStatement
-    |   'continue' identifier? ';' #continueStatement
+    |   'return' expression? #returnStatement
+    |   'break' identifier? #breakStatement
+    |   'continue' identifier? #continueStatement
     ;
 
 forControl
@@ -52,17 +52,11 @@ expressionList
     :   expression (',' expression)*
     ;
 
-parExpression
-    :   '(' expression ')'
-    ;
-
 judgeExpression returns [boolean result]
     : left=expression op=('==' | '>' | '>=' | '<' | '<=' | '<>' | '!=' ) right=expression
     ;
 
-
-
-assign: identifier '=' expression (';' | NEWLINE)+      # assignVariable
+assign: identifier EQUAL expression  # assignVariable
     ;
 
 expression
@@ -102,6 +96,10 @@ number
    : MINUS? DIGIT + (POINT DIGIT +)?
    ;
 
+EQUAL
+    : '='
+    ;
+
 LPAREN
    : '('
    ;
@@ -140,10 +138,6 @@ DIGIT
 
 COMMA
     : ','
-    ;
-
-NEWLINE
-    : '\r'? '\n' -> skip
     ;
 
 
@@ -204,11 +198,15 @@ WHILE         : 'while';
 // §3.8 Identifiers (must appear after all keywords in the grammar)
 
 identifier
-    :  LETTER (LETTER | DIGIT)*
-    //|  JavaLetter (JavaLetterOrDigit)*
+    : Identifier
+    | LETTER
     ;
 
+Identifier
+    :  JavaLetter (JavaLetterOrDigit)*
+    ;
 
+fragment
 JavaLetter
     :   [a-zA-Z$_] // these are the "java letters" below 0x7F
     |   // covers all characters above 0x7F which are not a surrogate
@@ -219,6 +217,7 @@ JavaLetter
         {Character.isJavaIdentifierStart(Character.toCodePoint((char)_input.LA(-2), (char)_input.LA(-1)))}?
     ;
 
+fragment
 JavaLetterOrDigit
     :   [a-zA-Z0-9$_] // these are the "java letters or digits" below 0x7F
     |   // covers all characters above 0x7F which are not a surrogate
@@ -249,4 +248,12 @@ COMMENT
 
 LINE_COMMENT
     :   '//' ~[\r\n]* -> skip
+    ;
+
+NEWLINE
+    : '\r'? '\n' -> skip
+    ;
+
+SEMICOLON
+    : ';' -> skip
     ;

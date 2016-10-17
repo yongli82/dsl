@@ -84,8 +84,13 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
             logger.debug("yesblock");
             return visit(ctx.yesblock);
         } else {
-            logger.debug("noblock");
-            return visit(ctx.noblock);
+            if(ctx.noblock != null) {
+                logger.debug("noblock");
+                return visit(ctx.noblock);
+            }else{
+                //无 else 块
+                return null;
+            }
         }
     }
 
@@ -206,15 +211,6 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
         return null;
     }
 
-    /**
-     * Visit a parse tree produced by {@link AccountingParser#parExpression}.
-     *
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    public BigDecimal visitParExpression(AccountingParser.ParExpressionContext ctx) {
-        return null;
-    }
 
     /**
      * 判断语句

@@ -77,15 +77,16 @@ public class MyAccountingTest {
         map.put("养老金上限", new BigDecimal("8000"));
         map.put("养老金下限", new BigDecimal("2000"));
         map.put("养老金比率", new BigDecimal("0.08"));
-        String e = "税 = 工资 * 税率\n" +
+        String e = "税 = 工资 * 税率 \n" +
                 "养老金基数 = 工资\n" +
                 "if(工资 > 养老金上限) { 养老金基数=养老金上限}\n" +
                 "if(工资 < 养老金下限) { 养老金基数=养老金下限}\n" +
+                "养老金 = 养老金基数 * 养老金比率\n" +
                 "应付薪水 = 工资 + 补贴 - 税 - 养老金\n" +
                  "return 应付薪水";
         System.out.println(e);
-        BigDecimal result = m.calculate(e, null);
-        assertEquals(new BigDecimal("20"), result);
+        BigDecimal result = m.calculate(e, map);
+        assertEquals(new BigDecimal("9460.00"), result);
     }
 
 }
