@@ -12,7 +12,7 @@ grammar Accounting;
  10. 变量支持中文
  */
 
-start: (assign)* expression;
+start: methodBody;
 
 methodBody
     : block
@@ -29,12 +29,11 @@ blockStatement
     ;
 
 statement
-    :   'if' parExpression statement ('else' statement)?
-    |   'for' '(' forControl ')' statement
-    |   'return' expression? ';'
-    |   'break' Identifier? ';'
-    |   'continue' Identifier? ';'
-    |   ';'
+    :   'if' '(' judgeExpression ')' '{' yesblock=block '}' ('else {' noblock=block '}')? #ifelseStatement
+    |   'for' '(' forControl ')' statement #forStatement
+    |   'return' expression? ';' #returnStatement
+    |   'break' identifier? ';' #breakStatement
+    |   'continue' identifier? ';' #continueStatement
     ;
 
 forControl
@@ -57,7 +56,13 @@ parExpression
     :   '(' expression ')'
     ;
 
-assign: variable '=' expression (';' | NEWLINE)+      # assignVariable
+judgeExpression returns [boolean result]
+    : left=expression op=('==' | '>' | '>=' | '<' | '<=' | '<>' | '!=' ) right=expression
+    ;
+
+
+
+assign: identifier '=' expression (';' | NEWLINE)+      # assignVariable
     ;
 
 expression
@@ -72,7 +77,7 @@ multiplyingExpression
 
 atomExpression
    : number       #atomNumber
-   | variable     #atomVariable
+   | identifier     #atomVariable
    | LPAREN expression RPAREN # paren
    | funcExpression #atomFunction
    | outerFunction #outerFunctionExpression
@@ -90,17 +95,12 @@ funcname
    ;
 
 outerFunction
-    : Identifier LPAREN expression (COMMA expression)* RPAREN
+    : identifier LPAREN expression (COMMA expression)* RPAREN
     ;
 
 number
    : MINUS? DIGIT + (POINT DIGIT +)?
    ;
-
-variable
-   : MINUS? LETTER (LETTER | DIGIT)*
-   ;
-
 
 LPAREN
    : '('
@@ -203,8 +203,8 @@ WHILE         : 'while';
 
 // §3.8 Identifiers (must appear after all keywords in the grammar)
 
-Identifier
-    :   JavaLetter JavaLetterOrDigit*
+identifier
+    :  LETTER (LETTER | DIGIT)*
     ;
 
 fragment

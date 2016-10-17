@@ -1,14 +1,33 @@
 package com.avon.hr.expression.accounting;
 
-import org.antlr.v4.runtime.tree.ErrorNode;
-import org.antlr.v4.runtime.tree.ParseTree;
+import com.yang.dsl.calculator.CalculatorLexer;
+import org.antlr.v4.runtime.Token;
+import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 import org.antlr.v4.runtime.tree.RuleNode;
-import org.antlr.v4.runtime.tree.TerminalNode;
+import org.apache.log4j.Logger;
+
+import java.math.BigDecimal;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
 
 /**
  * Created by yangyongli on 10/16/16.
  */
-public class MyAccountingVisitor implements AccountingVisitor<Object> {
+public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> implements AccountingVisitor<BigDecimal> {
+    Logger logger = Logger.getLogger(MyAccountingVisitor.class);
+    private Map<String, BigDecimal> variables = null;
+    private boolean isTerminal = false;
+
+    public MyAccountingVisitor(Map<String, BigDecimal> variables) {
+        if (null != variables) {
+            this.variables = new HashMap<String, BigDecimal>(variables);
+        } else {
+            this.variables = new HashMap<String, BigDecimal>();
+        }
+    }
+
 
     /**
      * Visit a parse tree produced by {@link AccountingParser#start}.
@@ -16,8 +35,9 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitStart(AccountingParser.StartContext ctx) {
-        return null;
+    public BigDecimal visitStart(AccountingParser.StartContext ctx) {
+        logger.debug("visitStart");
+        return visitChildren(ctx);
     }
 
     /**
@@ -26,8 +46,8 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitMethodBody(AccountingParser.MethodBodyContext ctx) {
-        return null;
+    public BigDecimal visitMethodBody(AccountingParser.MethodBodyContext ctx) {
+        return visitChildren(ctx);
     }
 
     /**
@@ -36,8 +56,8 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitBlock(AccountingParser.BlockContext ctx) {
-        return null;
+    public BigDecimal visitBlock(AccountingParser.BlockContext ctx) {
+        return visitChildren(ctx);
     }
 
     /**
@@ -46,7 +66,89 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitBlockStatement(AccountingParser.BlockStatementContext ctx) {
+    public BigDecimal visitBlockStatement(AccountingParser.BlockStatementContext ctx) {
+        return visitChildren(ctx);
+    }
+
+    /**
+     * Visit a parse tree produced by the {@code ifelseStatement}
+     * labeled alternative in {@link AccountingParser#statement}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    public BigDecimal visitIfelseStatement(AccountingParser.IfelseStatementContext ctx) {
+        AccountingParser.JudgeExpressionContext judgeExpressionContext = ctx.judgeExpression();
+        BigDecimal judge = visit(judgeExpressionContext);
+        if(judge.equals(BigDecimal.ONE)){
+            return visit(ctx.yesblock);
+        }else{
+            return visit(ctx.noblock);
+        }
+    }
+
+    /**
+     * Visit a parse tree produced by the {@code forStatement}
+     * labeled alternative in {@link AccountingParser#statement}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    public BigDecimal visitForStatement(AccountingParser.ForStatementContext ctx) {
+        return null;
+    }
+
+    /**
+     * 返回值
+     * Visit a parse tree produced by the {@code returnStatement}
+     * labeled alternative in {@link AccountingParser#statement}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    public BigDecimal visitReturnStatement(AccountingParser.ReturnStatementContext ctx) {
+        logger.debug("visitReturnStatement");
+        AccountingParser.ExpressionContext expression = ctx.expression();
+        //return 退出解释器怎么实现？
+        //结束树遍历，把值返回
+        BigDecimal value = visit(expression);
+        this.isTerminal = true;
+        return value;
+    }
+
+    /**
+     * 处理return，if等跳出树遍历的分支
+     * @param node
+     * @param currentResult
+     * @return
+     */
+    protected boolean shouldVisitNextChild(RuleNode node, BigDecimal currentResult) {
+        if(isTerminal){
+            logger.debug("isTerminal");
+            return true;
+        }
+        return true;
+    }
+
+    /**
+     * Visit a parse tree produced by the {@code breakStatement}
+     * labeled alternative in {@link AccountingParser#statement}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    public BigDecimal visitBreakStatement(AccountingParser.BreakStatementContext ctx) {
+        return null;
+    }
+
+    /**
+     * Visit a parse tree produced by the {@code continueStatement}
+     * labeled alternative in {@link AccountingParser#statement}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    public BigDecimal visitContinueStatement(AccountingParser.ContinueStatementContext ctx) {
         return null;
     }
 
@@ -56,8 +158,8 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitStatement(AccountingParser.StatementContext ctx) {
-        return null;
+    public BigDecimal visitStatement(AccountingParser.StatementContext ctx) {
+        return visitChildren(ctx);
     }
 
     /**
@@ -66,7 +168,7 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitForControl(AccountingParser.ForControlContext ctx) {
+    public BigDecimal visitForControl(AccountingParser.ForControlContext ctx) {
         return null;
     }
 
@@ -76,7 +178,7 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitForInit(AccountingParser.ForInitContext ctx) {
+    public BigDecimal visitForInit(AccountingParser.ForInitContext ctx) {
         return null;
     }
 
@@ -86,7 +188,7 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitForUpdate(AccountingParser.ForUpdateContext ctx) {
+    public BigDecimal visitForUpdate(AccountingParser.ForUpdateContext ctx) {
         return null;
     }
 
@@ -96,7 +198,7 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitExpressionList(AccountingParser.ExpressionListContext ctx) {
+    public BigDecimal visitExpressionList(AccountingParser.ExpressionListContext ctx) {
         return null;
     }
 
@@ -106,8 +208,47 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitParExpression(AccountingParser.ParExpressionContext ctx) {
+    public BigDecimal visitParExpression(AccountingParser.ParExpressionContext ctx) {
         return null;
+    }
+
+    /**判断语句
+     * BigDecimal.ONE == true
+     * BigDecimal.ZREO == false
+     * Visit a parse tree produced by {@link AccountingParser#judgeExpression}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    public BigDecimal visitJudgeExpression(AccountingParser.JudgeExpressionContext ctx) {
+        BigDecimal left = visit(ctx.left);
+        BigDecimal right = visit(ctx.right);
+        String op = ctx.op.getText();
+        boolean result = false;
+        int compareTo = left.compareTo(right);
+        if(op.equals("==")){
+            result = compareTo == 0;
+        }else if (op.equals(">")){
+            result = compareTo > 0;
+        }else if (op.equals(">=")){
+            result = compareTo >= 0;
+        }else if (op.equals("<")){
+            result = compareTo < 0;
+        }else if (op.equals("<=")){
+            result = compareTo <= 0;
+        }else if (op.equals("!=")){
+            result = compareTo != 0;
+        }else if (op.equals("<>")){
+            result = compareTo != 0;
+        }else {
+            throw new RuntimeException("Unsupported compare operator [" + op + "].");
+        }
+
+        if(result){
+            return BigDecimal.ONE;
+        }else{
+            return BigDecimal.ZERO;
+        }
     }
 
     /**
@@ -117,7 +258,13 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitAssignVariable(AccountingParser.AssignVariableContext ctx) {
+    public BigDecimal visitAssignVariable(AccountingParser.AssignVariableContext ctx) {
+        logger.debug("visitAssignVariable");
+        AccountingParser.IdentifierContext identifier = ctx.identifier();
+        String variableText = identifier.getText();
+        AccountingParser.ExpressionContext expression = ctx.expression();
+        BigDecimal value = visit(expression);
+        variables.put(variableText, value);
         return null;
     }
 
@@ -128,8 +275,8 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitSinglePlusOrMinus(AccountingParser.SinglePlusOrMinusContext ctx) {
-        return null;
+    public BigDecimal visitSinglePlusOrMinus(AccountingParser.SinglePlusOrMinusContext ctx) {
+        return visitChildren(ctx);
     }
 
     /**
@@ -139,8 +286,14 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitPlusOrMinus(AccountingParser.PlusOrMinusContext ctx) {
-        return null;
+    public BigDecimal visitPlusOrMinus(AccountingParser.PlusOrMinusContext ctx) {
+        BigDecimal leftValue = visit(ctx.left);
+        BigDecimal rightValue = visit(ctx.right);
+        if (ctx.op.getType() == CalculatorLexer.PLUS) {
+            return leftValue.add(rightValue);
+        } else {
+            return leftValue.subtract(rightValue);
+        }
     }
 
     /**
@@ -150,8 +303,8 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitSingleTimesOrDiv(AccountingParser.SingleTimesOrDivContext ctx) {
-        return null;
+    public BigDecimal visitSingleTimesOrDiv(AccountingParser.SingleTimesOrDivContext ctx) {
+        return visitChildren(ctx);
     }
 
     /**
@@ -161,8 +314,14 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitTimesOrDiv(AccountingParser.TimesOrDivContext ctx) {
-        return null;
+    public BigDecimal visitTimesOrDiv(AccountingParser.TimesOrDivContext ctx) {
+        BigDecimal leftValue = visit(ctx.left);
+        BigDecimal rightValue = visit(ctx.right);
+        if (ctx.op.getType() == CalculatorLexer.TIMES) {
+            return leftValue.multiply(rightValue);
+        } else {
+            return leftValue.divide(rightValue);
+        }
     }
 
     /**
@@ -172,8 +331,9 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitAtomNumber(AccountingParser.AtomNumberContext ctx) {
-        return null;
+    public BigDecimal visitAtomNumber(AccountingParser.AtomNumberContext ctx) {
+        String text = ctx.getText();
+        return new BigDecimal(text);
     }
 
     /**
@@ -183,8 +343,9 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitAtomVariable(AccountingParser.AtomVariableContext ctx) {
-        return null;
+    public BigDecimal visitAtomVariable(AccountingParser.AtomVariableContext ctx) {
+        AccountingParser.IdentifierContext identifier = ctx.identifier();
+        return visit(identifier);
     }
 
     /**
@@ -194,8 +355,8 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitParen(AccountingParser.ParenContext ctx) {
-        return null;
+    public BigDecimal visitParen(AccountingParser.ParenContext ctx) {
+        return visit(ctx.expression());
     }
 
     /**
@@ -205,8 +366,9 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitAtomFunction(AccountingParser.AtomFunctionContext ctx) {
-        return null;
+    public BigDecimal visitAtomFunction(AccountingParser.AtomFunctionContext ctx) {
+        AccountingParser.FuncExpressionContext funcExpressionContext = ctx.funcExpression();
+        return visit(funcExpressionContext);
     }
 
     /**
@@ -216,7 +378,7 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitOuterFunctionExpression(AccountingParser.OuterFunctionExpressionContext ctx) {
+    public BigDecimal visitOuterFunctionExpression(AccountingParser.OuterFunctionExpressionContext ctx) {
         return null;
     }
 
@@ -226,8 +388,19 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitFuncExpression(AccountingParser.FuncExpressionContext ctx) {
-        return null;
+    public BigDecimal visitFuncExpression(AccountingParser.FuncExpressionContext ctx) {
+        AccountingParser.FuncnameContext funcname = ctx.funcname();
+        String funcnameText = funcname.getText();
+        if (funcnameText.equals("SUM")) {
+            BigDecimal sum = BigDecimal.ZERO;
+            List<AccountingParser.ExpressionContext> expressionList = ctx.expression();
+            for (AccountingParser.ExpressionContext expressionContext : expressionList) {
+                BigDecimal decimal = visit(expressionContext);
+                sum = sum.add(decimal);
+            }
+            return sum;
+        }
+        return BigDecimal.ZERO;
     }
 
     /**
@@ -236,7 +409,7 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitFuncname(AccountingParser.FuncnameContext ctx) {
+    public BigDecimal visitFuncname(AccountingParser.FuncnameContext ctx) {
         return null;
     }
 
@@ -246,7 +419,7 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitOuterFunction(AccountingParser.OuterFunctionContext ctx) {
+    public BigDecimal visitOuterFunction(AccountingParser.OuterFunctionContext ctx) {
         return null;
     }
 
@@ -256,58 +429,25 @@ public class MyAccountingVisitor implements AccountingVisitor<Object> {
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitNumber(AccountingParser.NumberContext ctx) {
-        return null;
+    public BigDecimal visitNumber(AccountingParser.NumberContext ctx) {
+        String text = ctx.getText();
+        return new BigDecimal(text);
     }
 
     /**
-     * Visit a parse tree produced by {@link AccountingParser#variable}.
+     * Visit a parse tree produced by {@link AccountingParser#identifier}.
      *
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public Object visitVariable(AccountingParser.VariableContext ctx) {
-        return null;
+    public BigDecimal visitIdentifier(AccountingParser.IdentifierContext ctx) {
+        String variableName = ctx.getText();
+        if (variables.containsKey(variableName)) {
+            return variables.get(variableName);
+        } else {
+            throw new RuntimeException("Variable [" + variableName + "] does not exist.");
+        }
     }
 
-    /**
-     * Visit a parse tree, and return a user-defined result of the operation.
-     *
-     * @param tree The {@link ParseTree} to visit.
-     * @return The result of visiting the parse tree.
-     */
-    public Object visit(ParseTree tree) {
-        return null;
-    }
 
-    /**
-     * Visit the children of a node, and return a user-defined result of the
-     * operation.
-     *
-     * @param node The {@link RuleNode} whose children should be visited.
-     * @return The result of visiting the children of the node.
-     */
-    public Object visitChildren(RuleNode node) {
-        return null;
-    }
-
-    /**
-     * Visit a terminal node, and return a user-defined result of the operation.
-     *
-     * @param node The {@link TerminalNode} to visit.
-     * @return The result of visiting the node.
-     */
-    public Object visitTerminal(TerminalNode node) {
-        return null;
-    }
-
-    /**
-     * Visit an error node, and return a user-defined result of the operation.
-     *
-     * @param node The {@link ErrorNode} to visit.
-     * @return The result of visiting the node.
-     */
-    public Object visitErrorNode(ErrorNode node) {
-        return null;
-    }
 }

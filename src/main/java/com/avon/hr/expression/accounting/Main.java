@@ -17,7 +17,7 @@ public class Main {
         TokenStream tokens = new CommonTokenStream(lexer);
         AccountingParser parser = new AccountingParser(tokens);
 
-        MyAccountingVisitor visitor = new MyAccountingVisitor();
+        MyAccountingVisitor visitor = new MyAccountingVisitor(null);
         Object result = visitor.visit(parser.start());
         System.out.println(result);
     }
