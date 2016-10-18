@@ -89,4 +89,15 @@ public class MyAccountingTest {
         assertEquals(new BigDecimal("9460.00"), result);
     }
 
+    @Test
+    public void calculate8() throws Exception {
+        String e = "m = 1;\n" +
+                "for(a = 1; a < 100; a = a+1 )\n" +
+                "{ m = m + a }\n" +
+                "return m;";
+        System.out.println(e);
+        BigDecimal result = m.calculate(e, null);
+        assertEquals(new BigDecimal("4951"), result);
+    }
+
 }

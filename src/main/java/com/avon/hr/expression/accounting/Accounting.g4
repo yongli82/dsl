@@ -19,25 +19,25 @@ methodBody
     ;
 
 block
-    : (blockStatement | ';' | NEWLINE)*
+    : (blockStatement)*
     ;
 
 blockStatement
-    :   assign
-    |   statement
-    |   expression
+    :   assign (';'| NEWLINE)?
+    |   statement (';'| NEWLINE)?
+    |   expression (';'| NEWLINE)?
     ;
 
 statement
-    :   'if' '(' judgeExpression ')' '{' yesblock=block '}' ('else {' noblock=block '}')? #ifelseStatement
-    |   'for' '(' forControl ')' statement #forStatement
-    |   'return' expression? #returnStatement
-    |   'break' identifier? #breakStatement
-    |   'continue' identifier? #continueStatement
+    :   'if' '(' judgeExpression ')' '{' yesblock=block '}' ('else {' noblock=block '}')? (';'| NEWLINE)?#ifelseStatement
+    |   'for' '(' forControl ')' '{' block '}' (';'| NEWLINE)? #forStatement
+    |   'return' expression? (';'| NEWLINE)? #returnStatement
+    |   'break' identifier? (';'| NEWLINE)?#breakStatement
+    |   'continue' identifier? (';'| NEWLINE)?#continueStatement
     ;
 
 forControl
-    : forInit? ';' expression? ';' forUpdate?
+    : forInit? SEMICOLON judgeExpression? SEMICOLON forUpdate?
     ;
 
 forInit
@@ -45,7 +45,7 @@ forInit
     ;
 
 forUpdate
-    : expressionList
+    : assign
     ;
 
 expressionList
@@ -56,7 +56,7 @@ judgeExpression returns [boolean result]
     : left=expression op=('==' | '>' | '>=' | '<' | '<=' | '<>' | '!=' ) right=expression
     ;
 
-assign: identifier EQUAL expression  # assignVariable
+assign: identifier EQUAL expression (';'| NEWLINE)?# assignVariable
     ;
 
 expression
@@ -255,5 +255,5 @@ NEWLINE
     ;
 
 SEMICOLON
-    : ';' -> skip
+    : ';'
     ;

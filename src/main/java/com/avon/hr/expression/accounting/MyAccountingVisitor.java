@@ -95,17 +95,6 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
     }
 
     /**
-     * Visit a parse tree produced by the {@code forStatement}
-     * labeled alternative in {@link AccountingParser#statement}.
-     *
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    public BigDecimal visitForStatement(AccountingParser.ForStatementContext ctx) {
-        return null;
-    }
-
-    /**
      * 返回值
      * Visit a parse tree produced by the {@code returnStatement}
      * labeled alternative in {@link AccountingParser#statement}.
@@ -171,6 +160,31 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
         return visitChildren(ctx);
     }
 
+
+    /**
+     * Visit a parse tree produced by the {@code forStatement}
+     * labeled alternative in {@link AccountingParser#statement}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    public BigDecimal visitForStatement(AccountingParser.ForStatementContext ctx) {
+        logger.debug("visitForStatement: " + ctx.getText());
+        AccountingParser.ForControlContext forControlContext = ctx.forControl();
+        logger.debug("forControlContext: " + forControlContext.getText());
+        AccountingParser.ForInitContext forInitContext = forControlContext.forInit();
+        AccountingParser.JudgeExpressionContext judgeExpressionContext = forControlContext.judgeExpression();
+        AccountingParser.ForUpdateContext forUpdateContext = forControlContext.forUpdate();
+        AccountingParser.BlockContext block = ctx.block();
+        logger.debug("for block: " + block.getText());
+
+        for(visit(forInitContext); BigDecimal.ONE.equals(visit(judgeExpressionContext)); visit(forUpdateContext)){
+            BigDecimal blockValue = visit(block);
+            logger.debug("blockValue=" + blockValue);
+        }
+        return null;
+    }
+
     /**
      * Visit a parse tree produced by {@link AccountingParser#forControl}.
      *
@@ -178,6 +192,8 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      * @return the visitor result
      */
     public BigDecimal visitForControl(AccountingParser.ForControlContext ctx) {
+
+
         return null;
     }
 
@@ -188,6 +204,8 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      * @return the visitor result
      */
     public BigDecimal visitForInit(AccountingParser.ForInitContext ctx) {
+        AccountingParser.AssignContext assign = ctx.assign();
+        visit(assign);
         return null;
     }
 
@@ -198,6 +216,8 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      * @return the visitor result
      */
     public BigDecimal visitForUpdate(AccountingParser.ForUpdateContext ctx) {
+        AccountingParser.AssignContext assign = ctx.assign();
+        visit(assign);
         return null;
     }
 
