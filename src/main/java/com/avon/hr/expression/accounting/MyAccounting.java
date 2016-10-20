@@ -48,7 +48,7 @@ public class MyAccounting {
         }
     }
 
-    private AccountingParser getAccountingParser(String expression) {
+    public AccountingParser getAccountingParser(String expression) {
         CharStream charStream = new ANTLRInputStream(expression);
         AccountingLexer lexer = new AccountingLexer(charStream);
         TokenStream tokens = new CommonTokenStream(lexer);
