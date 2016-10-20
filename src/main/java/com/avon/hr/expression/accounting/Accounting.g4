@@ -89,7 +89,16 @@ innerFunctionName
    ;
 
 outerFunction
-    : identifier LPAREN expression (COMMA expression)* RPAREN
+    : identifier LPAREN parameter (COMMA parameter)* RPAREN
+    ;
+
+parameter
+    : expression    #parameterExpression
+    | string        #parameterString
+    ;
+
+string returns [String value]
+    : '"' identifier '"'
     ;
 
 number

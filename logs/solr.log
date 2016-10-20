@@ -9231,3 +9231,25 @@ DEBUG - 2016-10-20 10:20:15.896; com.avon.hr.expression.accounting.MyAccountingV
 DEBUG - 2016-10-20 10:20:15.897; com.avon.hr.expression.accounting.MyAccountingVisitor; visitFuncExpression:MAX(10,13,5,7,9)
 DEBUG - 2016-10-20 10:20:15.898; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
 DEBUG - 2016-10-20 10:20:15.899; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=13
+DEBUG - 2016-10-20 10:21:36.474; com.avon.hr.expression.accounting.MyAccountingVisitor; visitStart
+DEBUG - 2016-10-20 10:21:36.481; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=getValueByName
+DEBUG - 2016-10-20 21:06:00.459; com.avon.hr.expression.accounting.MyAccountingVisitor; visitStart
+DEBUG - 2016-10-20 21:06:00.487; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=summaryAndDouble(1,2,3,4,5,6,7,8,9,10)
+DEBUG - 2016-10-20 21:06:00.493; com.avon.hr.expression.accounting.MyAccountingVisitor; visitOuterFunction:summaryAndDouble(1,2,3,4,5,6,7,8,9,10)
+DEBUG - 2016-10-20 21:06:00.544; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
+DEBUG - 2016-10-20 21:06:00.549; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=110
+DEBUG - 2016-10-20 21:12:00.672; com.avon.hr.expression.accounting.MyAccountingVisitor; visitStart
+DEBUG - 2016-10-20 21:12:00.695; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=summaryAndDouble(1,2,3,4,5,6,7,8,9,10)
+DEBUG - 2016-10-20 21:12:00.696; com.avon.hr.expression.accounting.MyAccountingVisitor; visitOuterFunction:summaryAndDouble(1,2,3,4,5,6,7,8,9,10)
+DEBUG - 2016-10-20 21:12:00.722; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
+DEBUG - 2016-10-20 21:12:00.723; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=110
+DEBUG - 2016-10-20 21:12:00.745; com.avon.hr.expression.accounting.MyAccountingVisitor; visitStart
+DEBUG - 2016-10-20 21:12:00.746; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:rate=getBaseRateByArea("北京")
+DEBUG - 2016-10-20 21:12:00.756; com.avon.hr.expression.accounting.MyAccountingVisitor; visitOuterFunction:getBaseRateByArea("北京")
+DEBUG - 2016-10-20 21:12:00.759; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
+DEBUG - 2016-10-20 21:12:00.766; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=0.06
+DEBUG - 2016-10-20 21:12:00.773; com.avon.hr.expression.accounting.MyAccountingVisitor; visitStart
+DEBUG - 2016-10-20 21:12:00.774; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:rate=getBaseRateByArea("南京")
+DEBUG - 2016-10-20 21:12:00.779; com.avon.hr.expression.accounting.MyAccountingVisitor; visitOuterFunction:getBaseRateByArea("南京")
+DEBUG - 2016-10-20 21:12:00.791; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
+DEBUG - 2016-10-20 21:12:00.792; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=0.12

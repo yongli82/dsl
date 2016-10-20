@@ -503,17 +503,59 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
             throw new RuntimeException("Unsupported function [" + functionName + "]");
         }
 
-        List<AccountingParser.ExpressionContext> expressionContextList = ctx.expression();
-        List<BigDecimal> parameters = Lists.newArrayList();
-        for (AccountingParser.ExpressionContext expressionContext : expressionContextList) {
-            BigDecimal value = visit(expressionContext);
-            parameters.add(value);
+        List<AccountingParser.ParameterContext> parameterContextList = ctx.parameter();
+
+        List<Object> parameters = Lists.newArrayList();
+        for (AccountingParser.ParameterContext context : parameterContextList) {
+            if (context instanceof AccountingParser.ParameterExpressionContext){
+                BigDecimal value = visit(context);
+                parameters.add(value);
+            }else if (context instanceof AccountingParser.ParameterStringContext){
+                AccountingParser.StringContext stringContext = ((AccountingParser.ParameterStringContext) context).string();
+                String value = stringContext.identifier().getText();
+                parameters.add(value);
+            }
+
         }
 
         Object[] array = parameters.toArray();
         BigDecimal value = customiseFunction.execute(array);
 
         return value;
+    }
+
+    /**
+     * Visit a parse tree produced by the {@code parameterExpression}
+     * labeled alternative in {@link AccountingParser#parameter}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    public BigDecimal visitParameterExpression(AccountingParser.ParameterExpressionContext ctx) {
+        return visitChildren(ctx);
+    }
+
+    /**
+     * Visit a parse tree produced by the {@code parameterString}
+     * labeled alternative in {@link AccountingParser#parameter}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    public BigDecimal visitParameterString(AccountingParser.ParameterStringContext ctx) {
+        return null;
+    }
+
+    /**
+     * Visit a parse tree produced by {@link AccountingParser#string}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    public BigDecimal visitString(AccountingParser.StringContext ctx) {
+        String text = ctx.identifier().getText();
+        ctx.value = text;
+        return null;
     }
 
     /**

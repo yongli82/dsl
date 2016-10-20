@@ -24,6 +24,18 @@ public class MyAccountingExtendTest {
     public void setup(){
         SummaryAndDouble summaryAndDouble = new SummaryAndDouble();
         functionMap.put("summaryAndDouble", summaryAndDouble);
+        functionMap.put("getBaseRateByArea", new CustomiseFunction() {
+            public BigDecimal execute(Object... parameters) {
+                String city = (String)parameters[0];
+                if("北京".equals(city)){
+                    return new BigDecimal("0.06");
+                }
+                if ("南京".equals(city)){
+                    return new BigDecimal("0.12");
+                }
+                return BigDecimal.ZERO;
+            }
+        });
     }
 
     @Test
@@ -33,4 +45,21 @@ public class MyAccountingExtendTest {
         BigDecimal result = m.calculate(e, null, functionMap);
         assertEquals(new BigDecimal("110"), result);
     }
+
+    @Test
+    public void calculate2() throws Exception {
+        String e = "rate = getBaseRateByArea(\"北京\")\n" +
+                "return rate;";
+        BigDecimal result = m.calculate(e, null, functionMap);
+        assertEquals(new BigDecimal("0.06"), result);
+    }
+
+    @Test
+    public void calculate3() throws Exception {
+        String e = "rate = getBaseRateByArea(\"南京\")\n" +
+                "return rate;";
+        BigDecimal result = m.calculate(e, null, functionMap);
+        assertEquals(new BigDecimal("0.12"), result);
+    }
+
 }
