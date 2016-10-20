@@ -8313,3 +8313,921 @@ DEBUG - 2016-10-20 08:53:57.341; com.avon.hr.expression.accounting.MyAccountingV
 DEBUG - 2016-10-20 08:53:57.344; com.avon.hr.expression.accounting.MyAccountingVisitor; visitFuncExpression:AVERAGE(1,3,5,7,9)
 DEBUG - 2016-10-20 08:53:57.363; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
 DEBUG - 2016-10-20 08:53:57.364; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=5.00
+DEBUG - 2016-10-20 10:12:19.992; com.avon.hr.expression.accounting.MyAccountingVisitor; visitStart
+DEBUG - 2016-10-20 10:12:20.023; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=summaryAndDouble(1,2,3,4,5,6,7,8,9)
+DEBUG - 2016-10-20 10:12:20.026; com.avon.hr.expression.accounting.MyAccountingVisitor; visitOuterFunction:summaryAndDouble(1,2,3,4,5,6,7,8,9)
+DEBUG - 2016-10-20 10:12:57.689; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
+DEBUG - 2016-10-20 10:12:57.692; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=0
+DEBUG - 2016-10-20 10:13:17.051; com.avon.hr.expression.accounting.MyAccountingVisitor; visitStart
+DEBUG - 2016-10-20 10:13:17.057; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=summaryAndDouble(1,2,3,4,5,6,7,8,9)
+DEBUG - 2016-10-20 10:13:17.059; com.avon.hr.expression.accounting.MyAccountingVisitor; visitOuterFunction:summaryAndDouble(1,2,3,4,5,6,7,8,9)
+DEBUG - 2016-10-20 10:13:17.081; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
+DEBUG - 2016-10-20 10:13:17.082; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=90
+DEBUG - 2016-10-20 10:13:37.791; com.avon.hr.expression.accounting.MyAccountingVisitor; visitStart
+DEBUG - 2016-10-20 10:13:37.800; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=summaryAndDouble(1,2,3,4,5,6,7,8,9,10)
+DEBUG - 2016-10-20 10:13:37.801; com.avon.hr.expression.accounting.MyAccountingVisitor; visitOuterFunction:summaryAndDouble(1,2,3,4,5,6,7,8,9,10)
+DEBUG - 2016-10-20 10:13:37.826; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
+DEBUG - 2016-10-20 10:13:37.828; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=110
+DEBUG - 2016-10-20 10:20:14.341; com.avon.hr.expression.accounting.MyAccountingVisitor; visitStart
+DEBUG - 2016-10-20 10:20:14.354; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=1;
+DEBUG - 2016-10-20 10:20:14.360; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
+DEBUG - 2016-10-20 10:20:14.362; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=1
+DEBUG - 2016-10-20 10:20:14.402; com.avon.hr.expression.accounting.MyAccountingVisitor; visitStart
+DEBUG - 2016-10-20 10:20:14.404; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=1;
+DEBUG - 2016-10-20 10:20:14.405; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:b=2;
+DEBUG - 2016-10-20 10:20:14.407; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:c=a+b;
+DEBUG - 2016-10-20 10:20:14.408; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+b
+DEBUG - 2016-10-20 10:20:14.411; com.avon.hr.expression.accounting.MyAccountingVisitor; a+b : 3
+DEBUG - 2016-10-20 10:20:14.413; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
+DEBUG - 2016-10-20 10:20:14.413; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=3
+DEBUG - 2016-10-20 10:20:14.445; com.avon.hr.expression.accounting.MyAccountingVisitor; visitStart
+DEBUG - 2016-10-20 10:20:14.448; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=1.5;
+DEBUG - 2016-10-20 10:20:14.449; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:b=2;
+DEBUG - 2016-10-20 10:20:14.456; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:c=a*b;
+DEBUG - 2016-10-20 10:20:14.457; com.avon.hr.expression.accounting.MyAccountingVisitor; visitTimesOrDiv:a*b
+DEBUG - 2016-10-20 10:20:14.460; com.avon.hr.expression.accounting.MyAccountingVisitor; a*b : 3.0
+DEBUG - 2016-10-20 10:20:14.461; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
+DEBUG - 2016-10-20 10:20:14.462; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=3.0
+DEBUG - 2016-10-20 10:20:14.502; com.avon.hr.expression.accounting.MyAccountingVisitor; visitStart
+DEBUG - 2016-10-20 10:20:14.505; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=8;
+DEBUG - 2016-10-20 10:20:14.506; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:b=2;
+DEBUG - 2016-10-20 10:20:14.507; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:c=a/b;
+DEBUG - 2016-10-20 10:20:14.508; com.avon.hr.expression.accounting.MyAccountingVisitor; visitTimesOrDiv:a/b
+DEBUG - 2016-10-20 10:20:14.509; com.avon.hr.expression.accounting.MyAccountingVisitor; a/b : 4
+DEBUG - 2016-10-20 10:20:14.513; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
+DEBUG - 2016-10-20 10:20:14.515; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=4
+DEBUG - 2016-10-20 10:20:14.592; com.avon.hr.expression.accounting.MyAccountingVisitor; visitStart
+DEBUG - 2016-10-20 10:20:14.593; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=8;
+DEBUG - 2016-10-20 10:20:14.593; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:b=2;
+DEBUG - 2016-10-20 10:20:14.595; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:c=a/b+b-3*2+a*3+15;
+DEBUG - 2016-10-20 10:20:14.596; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a/b+b-3*2+a*3+15
+DEBUG - 2016-10-20 10:20:14.612; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a/b+b-3*2+a*3
+DEBUG - 2016-10-20 10:20:14.613; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a/b+b-3*2
+DEBUG - 2016-10-20 10:20:14.614; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a/b+b
+DEBUG - 2016-10-20 10:20:14.615; com.avon.hr.expression.accounting.MyAccountingVisitor; visitTimesOrDiv:a/b
+DEBUG - 2016-10-20 10:20:14.621; com.avon.hr.expression.accounting.MyAccountingVisitor; a/b : 4
+DEBUG - 2016-10-20 10:20:14.622; com.avon.hr.expression.accounting.MyAccountingVisitor; a/b+b : 6
+DEBUG - 2016-10-20 10:20:14.622; com.avon.hr.expression.accounting.MyAccountingVisitor; visitTimesOrDiv:3*2
+DEBUG - 2016-10-20 10:20:14.623; com.avon.hr.expression.accounting.MyAccountingVisitor; 3*2 : 6
+DEBUG - 2016-10-20 10:20:14.624; com.avon.hr.expression.accounting.MyAccountingVisitor; a/b+b-3*2 : 0
+DEBUG - 2016-10-20 10:20:14.631; com.avon.hr.expression.accounting.MyAccountingVisitor; visitTimesOrDiv:a*3
+DEBUG - 2016-10-20 10:20:14.633; com.avon.hr.expression.accounting.MyAccountingVisitor; a*3 : 24
+DEBUG - 2016-10-20 10:20:14.634; com.avon.hr.expression.accounting.MyAccountingVisitor; a/b+b-3*2+a*3 : 24
+DEBUG - 2016-10-20 10:20:14.635; com.avon.hr.expression.accounting.MyAccountingVisitor; a/b+b-3*2+a*3+15 : 39
+DEBUG - 2016-10-20 10:20:14.636; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
+DEBUG - 2016-10-20 10:20:14.637; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=39
+DEBUG - 2016-10-20 10:20:14.648; com.avon.hr.expression.accounting.MyAccountingVisitor; visitStart
+DEBUG - 2016-10-20 10:20:14.648; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=5;
+DEBUG - 2016-10-20 10:20:14.649; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:b=6;
+DEBUG - 2016-10-20 10:20:14.653; com.avon.hr.expression.accounting.MyAccountingVisitor; visitIfelseStatement
+DEBUG - 2016-10-20 10:20:14.655; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=false
+DEBUG - 2016-10-20 10:20:14.657; com.avon.hr.expression.accounting.MyAccountingVisitor; judge(a==6):false
+DEBUG - 2016-10-20 10:20:14.658; com.avon.hr.expression.accounting.MyAccountingVisitor; noblock
+DEBUG - 2016-10-20 10:20:14.658; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
+DEBUG - 2016-10-20 10:20:14.659; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=20
+DEBUG - 2016-10-20 10:20:14.676; com.avon.hr.expression.accounting.MyAccountingVisitor; visitStart
+DEBUG - 2016-10-20 10:20:14.677; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:税=工资*税率
+DEBUG - 2016-10-20 10:20:14.678; com.avon.hr.expression.accounting.MyAccountingVisitor; visitTimesOrDiv:工资*税率
+DEBUG - 2016-10-20 10:20:14.684; com.avon.hr.expression.accounting.MyAccountingVisitor; 工资*税率 : 100.00
+DEBUG - 2016-10-20 10:20:14.684; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:养老金基数=工资
+DEBUG - 2016-10-20 10:20:14.690; com.avon.hr.expression.accounting.MyAccountingVisitor; visitIfelseStatement
+DEBUG - 2016-10-20 10:20:14.693; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.697; com.avon.hr.expression.accounting.MyAccountingVisitor; judge(工资>养老金上限):true
+DEBUG - 2016-10-20 10:20:14.698; com.avon.hr.expression.accounting.MyAccountingVisitor; yesblock
+DEBUG - 2016-10-20 10:20:14.700; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:养老金基数=养老金上限
+DEBUG - 2016-10-20 10:20:14.701; com.avon.hr.expression.accounting.MyAccountingVisitor; visitIfelseStatement
+DEBUG - 2016-10-20 10:20:14.703; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=false
+DEBUG - 2016-10-20 10:20:14.706; com.avon.hr.expression.accounting.MyAccountingVisitor; judge(工资<养老金下限):false
+DEBUG - 2016-10-20 10:20:14.707; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:养老金=养老金基数*养老金比率
+DEBUG - 2016-10-20 10:20:14.707; com.avon.hr.expression.accounting.MyAccountingVisitor; visitTimesOrDiv:养老金基数*养老金比率
+DEBUG - 2016-10-20 10:20:14.708; com.avon.hr.expression.accounting.MyAccountingVisitor; 养老金基数*养老金比率 : 640.00
+DEBUG - 2016-10-20 10:20:14.709; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:应付薪水=工资+补贴-税-养老金
+DEBUG - 2016-10-20 10:20:14.720; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:工资+补贴-税-养老金
+DEBUG - 2016-10-20 10:20:14.721; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:工资+补贴-税
+DEBUG - 2016-10-20 10:20:14.731; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:工资+补贴
+DEBUG - 2016-10-20 10:20:14.733; com.avon.hr.expression.accounting.MyAccountingVisitor; 工资+补贴 : 10200
+DEBUG - 2016-10-20 10:20:14.735; com.avon.hr.expression.accounting.MyAccountingVisitor; 工资+补贴-税 : 10100.00
+DEBUG - 2016-10-20 10:20:14.742; com.avon.hr.expression.accounting.MyAccountingVisitor; 工资+补贴-税-养老金 : 9460.00
+DEBUG - 2016-10-20 10:20:14.744; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
+DEBUG - 2016-10-20 10:20:14.745; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=9460.00
+DEBUG - 2016-10-20 10:20:14.767; com.avon.hr.expression.accounting.MyAccountingVisitor; visitStart
+DEBUG - 2016-10-20 10:20:14.771; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=1;
+DEBUG - 2016-10-20 10:20:14.774; com.avon.hr.expression.accounting.MyAccountingVisitor; visitForStatement: for(a=1;a<100;a=a+1){m=m+a}
+DEBUG - 2016-10-20 10:20:14.775; com.avon.hr.expression.accounting.MyAccountingVisitor; forControlContext: a=1;a<100;a=a+1
+DEBUG - 2016-10-20 10:20:14.776; com.avon.hr.expression.accounting.MyAccountingVisitor; for block: m=m+a
+DEBUG - 2016-10-20 10:20:14.777; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=1
+DEBUG - 2016-10-20 10:20:14.779; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.782; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:14.783; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:14.793; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 2
+DEBUG - 2016-10-20 10:20:14.795; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:14.819; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:14.820; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:14.825; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 2
+DEBUG - 2016-10-20 10:20:14.826; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.828; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:14.830; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:14.832; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 4
+DEBUG - 2016-10-20 10:20:14.833; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:14.834; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:14.835; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:14.835; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 3
+DEBUG - 2016-10-20 10:20:14.836; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.837; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:14.838; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:14.855; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 7
+DEBUG - 2016-10-20 10:20:14.860; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:14.862; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:14.866; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:14.869; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 4
+DEBUG - 2016-10-20 10:20:14.871; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.873; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:14.876; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:14.881; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 11
+DEBUG - 2016-10-20 10:20:14.897; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:14.897; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:14.898; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:14.898; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 5
+DEBUG - 2016-10-20 10:20:14.900; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.900; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:14.901; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:14.904; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 16
+DEBUG - 2016-10-20 10:20:14.905; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:14.906; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:14.906; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:14.907; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 6
+DEBUG - 2016-10-20 10:20:14.909; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.910; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:14.911; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:14.912; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 22
+DEBUG - 2016-10-20 10:20:14.930; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:14.931; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:14.931; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:14.931; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 7
+DEBUG - 2016-10-20 10:20:14.932; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.932; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:14.933; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:14.933; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 29
+DEBUG - 2016-10-20 10:20:14.934; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:14.935; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:14.935; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:14.935; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 8
+DEBUG - 2016-10-20 10:20:14.936; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.937; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:14.937; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:14.938; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 37
+DEBUG - 2016-10-20 10:20:14.938; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:14.939; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:14.939; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:14.940; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 9
+DEBUG - 2016-10-20 10:20:14.941; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.941; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:14.946; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:14.947; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 46
+DEBUG - 2016-10-20 10:20:14.947; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:14.948; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:14.948; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:14.948; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 10
+DEBUG - 2016-10-20 10:20:14.949; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.950; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:14.950; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:14.951; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 56
+DEBUG - 2016-10-20 10:20:14.952; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:14.952; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:14.953; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:14.953; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 11
+DEBUG - 2016-10-20 10:20:14.954; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.954; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:14.954; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:14.955; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 67
+DEBUG - 2016-10-20 10:20:14.955; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:14.955; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:14.956; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:14.956; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 12
+DEBUG - 2016-10-20 10:20:14.956; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.957; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:14.957; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:14.957; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 79
+DEBUG - 2016-10-20 10:20:14.958; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:14.958; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:14.959; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:14.959; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 13
+DEBUG - 2016-10-20 10:20:14.961; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.961; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:14.962; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:14.962; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 92
+DEBUG - 2016-10-20 10:20:14.962; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:14.963; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:14.963; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:14.964; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 14
+DEBUG - 2016-10-20 10:20:14.965; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.966; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:14.966; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:14.967; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 106
+DEBUG - 2016-10-20 10:20:14.967; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:14.967; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:14.968; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:14.969; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 15
+DEBUG - 2016-10-20 10:20:14.970; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.970; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:14.971; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:14.971; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 121
+DEBUG - 2016-10-20 10:20:14.971; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:14.972; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:14.972; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:14.972; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 16
+DEBUG - 2016-10-20 10:20:14.972; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.974; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:14.974; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:14.979; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 137
+DEBUG - 2016-10-20 10:20:14.979; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:14.980; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:14.981; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:14.984; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 17
+DEBUG - 2016-10-20 10:20:14.984; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.985; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:14.985; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:14.986; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 154
+DEBUG - 2016-10-20 10:20:14.986; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:14.987; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:14.987; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:14.988; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 18
+DEBUG - 2016-10-20 10:20:14.988; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.988; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:14.989; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:14.990; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 172
+DEBUG - 2016-10-20 10:20:14.990; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:14.991; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:14.992; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:14.993; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 19
+DEBUG - 2016-10-20 10:20:14.994; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.995; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:14.995; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:14.995; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 191
+DEBUG - 2016-10-20 10:20:14.997; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:14.998; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:14.998; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:14.999; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 20
+DEBUG - 2016-10-20 10:20:14.999; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:14.999; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.000; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.000; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 211
+DEBUG - 2016-10-20 10:20:15.001; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.001; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.002; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.003; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 21
+DEBUG - 2016-10-20 10:20:15.004; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.006; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.007; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.008; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 232
+DEBUG - 2016-10-20 10:20:15.011; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.012; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.014; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.015; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 22
+DEBUG - 2016-10-20 10:20:15.016; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.016; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.017; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.018; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 254
+DEBUG - 2016-10-20 10:20:15.020; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.020; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.022; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.022; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 23
+DEBUG - 2016-10-20 10:20:15.023; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.024; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.024; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.025; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 277
+DEBUG - 2016-10-20 10:20:15.026; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.027; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.031; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.033; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 24
+DEBUG - 2016-10-20 10:20:15.034; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.035; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.035; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.036; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 301
+DEBUG - 2016-10-20 10:20:15.036; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.038; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.038; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.039; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 25
+DEBUG - 2016-10-20 10:20:15.040; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.044; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.045; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.045; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 326
+DEBUG - 2016-10-20 10:20:15.045; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.046; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.046; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.046; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 26
+DEBUG - 2016-10-20 10:20:15.047; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.047; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.048; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.048; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 352
+DEBUG - 2016-10-20 10:20:15.049; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.050; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.052; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.052; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 27
+DEBUG - 2016-10-20 10:20:15.053; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.053; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.109; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.110; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 379
+DEBUG - 2016-10-20 10:20:15.114; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.117; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.126; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.128; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 28
+DEBUG - 2016-10-20 10:20:15.129; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.130; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.130; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.131; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 407
+DEBUG - 2016-10-20 10:20:15.132; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.133; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.134; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.135; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 29
+DEBUG - 2016-10-20 10:20:15.136; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.137; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.138; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.138; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 436
+DEBUG - 2016-10-20 10:20:15.138; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.139; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.139; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.140; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 30
+DEBUG - 2016-10-20 10:20:15.140; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.141; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.141; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.142; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 466
+DEBUG - 2016-10-20 10:20:15.143; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.143; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.152; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.152; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 31
+DEBUG - 2016-10-20 10:20:15.152; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.153; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.153; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.156; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 497
+DEBUG - 2016-10-20 10:20:15.157; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.157; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.157; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.158; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 32
+DEBUG - 2016-10-20 10:20:15.158; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.158; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.158; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.159; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 529
+DEBUG - 2016-10-20 10:20:15.159; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.159; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.160; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.160; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 33
+DEBUG - 2016-10-20 10:20:15.160; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.161; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.161; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.162; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 562
+DEBUG - 2016-10-20 10:20:15.162; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.162; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.163; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.163; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 34
+DEBUG - 2016-10-20 10:20:15.163; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.164; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.164; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.164; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 596
+DEBUG - 2016-10-20 10:20:15.165; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.165; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.166; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.166; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 35
+DEBUG - 2016-10-20 10:20:15.166; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.166; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.167; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.167; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 631
+DEBUG - 2016-10-20 10:20:15.168; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.168; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.168; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.169; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 36
+DEBUG - 2016-10-20 10:20:15.169; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.169; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.170; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.171; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 667
+DEBUG - 2016-10-20 10:20:15.171; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.174; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.177; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.179; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 37
+DEBUG - 2016-10-20 10:20:15.182; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.184; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.186; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.186; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 704
+DEBUG - 2016-10-20 10:20:15.187; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.187; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.188; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.189; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 38
+DEBUG - 2016-10-20 10:20:15.191; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.192; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.192; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.193; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 742
+DEBUG - 2016-10-20 10:20:15.194; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.194; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.195; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.195; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 39
+DEBUG - 2016-10-20 10:20:15.196; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.196; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.197; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.197; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 781
+DEBUG - 2016-10-20 10:20:15.198; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.198; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.198; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.199; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 40
+DEBUG - 2016-10-20 10:20:15.199; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.214; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.216; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.216; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 821
+DEBUG - 2016-10-20 10:20:15.216; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.219; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.223; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.322; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 41
+DEBUG - 2016-10-20 10:20:15.323; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.323; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.323; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.325; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 862
+DEBUG - 2016-10-20 10:20:15.325; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.325; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.326; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.326; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 42
+DEBUG - 2016-10-20 10:20:15.326; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.327; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.327; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.327; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 904
+DEBUG - 2016-10-20 10:20:15.328; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.329; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.329; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.330; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 43
+DEBUG - 2016-10-20 10:20:15.333; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.334; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.334; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.335; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 947
+DEBUG - 2016-10-20 10:20:15.336; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.336; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.336; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.337; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 44
+DEBUG - 2016-10-20 10:20:15.337; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.337; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.338; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.338; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 991
+DEBUG - 2016-10-20 10:20:15.338; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.339; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.339; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.339; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 45
+DEBUG - 2016-10-20 10:20:15.340; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.340; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.340; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.341; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 1036
+DEBUG - 2016-10-20 10:20:15.341; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.341; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.342; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.342; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 46
+DEBUG - 2016-10-20 10:20:15.342; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.343; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.343; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.343; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 1082
+DEBUG - 2016-10-20 10:20:15.344; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.344; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.345; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.345; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 47
+DEBUG - 2016-10-20 10:20:15.346; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.346; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.352; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.353; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 1129
+DEBUG - 2016-10-20 10:20:15.353; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.353; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.353; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.354; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 48
+DEBUG - 2016-10-20 10:20:15.354; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.354; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.355; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.355; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 1177
+DEBUG - 2016-10-20 10:20:15.355; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.356; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.356; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.356; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 49
+DEBUG - 2016-10-20 10:20:15.357; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.357; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.357; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.358; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 1226
+DEBUG - 2016-10-20 10:20:15.358; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.358; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.358; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.359; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 50
+DEBUG - 2016-10-20 10:20:15.359; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.359; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.360; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.360; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 1276
+DEBUG - 2016-10-20 10:20:15.360; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.361; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.361; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.361; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 51
+DEBUG - 2016-10-20 10:20:15.362; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.362; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.362; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.374; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 1327
+DEBUG - 2016-10-20 10:20:15.374; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.374; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.375; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.375; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 52
+DEBUG - 2016-10-20 10:20:15.375; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.375; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.377; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.377; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 1379
+DEBUG - 2016-10-20 10:20:15.380; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.380; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.380; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.381; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 53
+DEBUG - 2016-10-20 10:20:15.381; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.382; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.382; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.382; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 1432
+DEBUG - 2016-10-20 10:20:15.383; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.383; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.383; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.384; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 54
+DEBUG - 2016-10-20 10:20:15.385; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.386; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.386; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.386; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 1486
+DEBUG - 2016-10-20 10:20:15.387; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.387; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.387; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.388; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 55
+DEBUG - 2016-10-20 10:20:15.388; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.388; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.389; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.389; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 1541
+DEBUG - 2016-10-20 10:20:15.390; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.391; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.391; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.391; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 56
+DEBUG - 2016-10-20 10:20:15.392; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.392; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.392; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.393; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 1597
+DEBUG - 2016-10-20 10:20:15.393; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.393; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.393; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.394; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 57
+DEBUG - 2016-10-20 10:20:15.394; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.395; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.396; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.396; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 1654
+DEBUG - 2016-10-20 10:20:15.396; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.400; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.401; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.402; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 58
+DEBUG - 2016-10-20 10:20:15.403; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.406; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.407; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.409; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 1712
+DEBUG - 2016-10-20 10:20:15.410; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.411; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.411; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.421; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 59
+DEBUG - 2016-10-20 10:20:15.421; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.421; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.422; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.422; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 1771
+DEBUG - 2016-10-20 10:20:15.422; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.422; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.423; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.426; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 60
+DEBUG - 2016-10-20 10:20:15.432; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.432; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.432; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.433; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 1831
+DEBUG - 2016-10-20 10:20:15.433; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.434; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.434; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.434; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 61
+DEBUG - 2016-10-20 10:20:15.435; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.435; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.435; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.435; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 1892
+DEBUG - 2016-10-20 10:20:15.436; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.436; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.436; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.436; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 62
+DEBUG - 2016-10-20 10:20:15.437; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.437; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.437; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.438; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 1954
+DEBUG - 2016-10-20 10:20:15.438; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.439; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.439; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.439; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 63
+DEBUG - 2016-10-20 10:20:15.439; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.440; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.440; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.440; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 2017
+DEBUG - 2016-10-20 10:20:15.440; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.441; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.441; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.441; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 64
+DEBUG - 2016-10-20 10:20:15.441; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.442; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.442; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.442; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 2081
+DEBUG - 2016-10-20 10:20:15.443; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.443; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.443; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.443; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 65
+DEBUG - 2016-10-20 10:20:15.444; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.445; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.445; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.445; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 2146
+DEBUG - 2016-10-20 10:20:15.446; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.463; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.464; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.464; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 66
+DEBUG - 2016-10-20 10:20:15.465; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.467; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.467; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.467; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 2212
+DEBUG - 2016-10-20 10:20:15.468; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.468; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.468; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.469; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 67
+DEBUG - 2016-10-20 10:20:15.469; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.469; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.470; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.470; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 2279
+DEBUG - 2016-10-20 10:20:15.470; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.470; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.471; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.471; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 68
+DEBUG - 2016-10-20 10:20:15.471; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.472; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.472; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.472; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 2347
+DEBUG - 2016-10-20 10:20:15.472; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.473; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.473; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.473; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 69
+DEBUG - 2016-10-20 10:20:15.480; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.480; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.480; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.481; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 2416
+DEBUG - 2016-10-20 10:20:15.482; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.483; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.483; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.484; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 70
+DEBUG - 2016-10-20 10:20:15.485; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.489; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.489; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.489; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 2486
+DEBUG - 2016-10-20 10:20:15.490; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.490; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.490; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.491; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 71
+DEBUG - 2016-10-20 10:20:15.491; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.491; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.491; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.492; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 2557
+DEBUG - 2016-10-20 10:20:15.492; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.492; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.492; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.493; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 72
+DEBUG - 2016-10-20 10:20:15.493; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.493; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.494; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.494; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 2629
+DEBUG - 2016-10-20 10:20:15.494; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.495; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.495; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.495; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 73
+DEBUG - 2016-10-20 10:20:15.496; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.505; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.513; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.513; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 2702
+DEBUG - 2016-10-20 10:20:15.513; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.514; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.514; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.515; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 74
+DEBUG - 2016-10-20 10:20:15.515; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.516; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.516; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.516; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 2776
+DEBUG - 2016-10-20 10:20:15.518; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.518; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.521; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.522; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 75
+DEBUG - 2016-10-20 10:20:15.522; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.522; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.523; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.523; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 2851
+DEBUG - 2016-10-20 10:20:15.523; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.524; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.524; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.524; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 76
+DEBUG - 2016-10-20 10:20:15.524; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.525; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.525; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.525; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 2927
+DEBUG - 2016-10-20 10:20:15.526; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.526; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.526; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.527; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 77
+DEBUG - 2016-10-20 10:20:15.527; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.527; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.528; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.529; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 3004
+DEBUG - 2016-10-20 10:20:15.529; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.538; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.540; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.541; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 78
+DEBUG - 2016-10-20 10:20:15.541; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.542; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.542; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.542; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 3082
+DEBUG - 2016-10-20 10:20:15.543; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.543; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.543; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.544; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 79
+DEBUG - 2016-10-20 10:20:15.544; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.544; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.549; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.550; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 3161
+DEBUG - 2016-10-20 10:20:15.550; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.550; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.551; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.551; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 80
+DEBUG - 2016-10-20 10:20:15.551; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.552; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.552; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.552; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 3241
+DEBUG - 2016-10-20 10:20:15.552; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.553; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.553; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.553; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 81
+DEBUG - 2016-10-20 10:20:15.554; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.554; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.554; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.555; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 3322
+DEBUG - 2016-10-20 10:20:15.556; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.556; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.556; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.557; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 82
+DEBUG - 2016-10-20 10:20:15.557; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.557; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.558; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.558; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 3404
+DEBUG - 2016-10-20 10:20:15.558; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.558; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.559; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.559; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 83
+DEBUG - 2016-10-20 10:20:15.559; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.559; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.560; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.560; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 3487
+DEBUG - 2016-10-20 10:20:15.560; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.561; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.561; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.561; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 84
+DEBUG - 2016-10-20 10:20:15.562; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.562; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.562; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.562; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 3571
+DEBUG - 2016-10-20 10:20:15.563; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.563; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.563; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.563; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 85
+DEBUG - 2016-10-20 10:20:15.564; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.564; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.564; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.564; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 3656
+DEBUG - 2016-10-20 10:20:15.565; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.565; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.565; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.565; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 86
+DEBUG - 2016-10-20 10:20:15.566; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.566; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.566; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.566; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 3742
+DEBUG - 2016-10-20 10:20:15.567; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.567; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.567; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.567; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 87
+DEBUG - 2016-10-20 10:20:15.567; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.568; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.568; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.569; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 3829
+DEBUG - 2016-10-20 10:20:15.569; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.569; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.569; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.569; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 88
+DEBUG - 2016-10-20 10:20:15.570; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.570; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.570; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.570; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 3917
+DEBUG - 2016-10-20 10:20:15.571; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.571; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.571; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.571; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 89
+DEBUG - 2016-10-20 10:20:15.572; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.572; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.572; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.573; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 4006
+DEBUG - 2016-10-20 10:20:15.573; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.573; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.574; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.574; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 90
+DEBUG - 2016-10-20 10:20:15.575; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.575; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.575; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.576; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 4096
+DEBUG - 2016-10-20 10:20:15.576; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.576; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.577; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.577; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 91
+DEBUG - 2016-10-20 10:20:15.577; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.578; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.583; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.584; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 4187
+DEBUG - 2016-10-20 10:20:15.584; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.584; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.585; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.585; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 92
+DEBUG - 2016-10-20 10:20:15.585; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.590; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.591; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.591; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 4279
+DEBUG - 2016-10-20 10:20:15.592; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.592; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.592; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.592; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 93
+DEBUG - 2016-10-20 10:20:15.593; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.593; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.593; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.593; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 4372
+DEBUG - 2016-10-20 10:20:15.594; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.594; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.595; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.595; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 94
+DEBUG - 2016-10-20 10:20:15.595; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.595; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.642; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.642; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 4466
+DEBUG - 2016-10-20 10:20:15.643; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.643; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.643; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.643; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 95
+DEBUG - 2016-10-20 10:20:15.644; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.644; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.644; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.647; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 4561
+DEBUG - 2016-10-20 10:20:15.648; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.648; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.648; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.649; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 96
+DEBUG - 2016-10-20 10:20:15.649; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.649; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.650; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.650; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 4657
+DEBUG - 2016-10-20 10:20:15.651; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.652; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.653; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.654; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 97
+DEBUG - 2016-10-20 10:20:15.654; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.655; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.655; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.655; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 4754
+DEBUG - 2016-10-20 10:20:15.656; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.656; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.656; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.657; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 98
+DEBUG - 2016-10-20 10:20:15.657; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.657; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.657; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.658; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 4852
+DEBUG - 2016-10-20 10:20:15.658; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.658; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.659; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.659; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 99
+DEBUG - 2016-10-20 10:20:15.665; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=true
+DEBUG - 2016-10-20 10:20:15.666; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:m=m+a
+DEBUG - 2016-10-20 10:20:15.666; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:m+a
+DEBUG - 2016-10-20 10:20:15.666; com.avon.hr.expression.accounting.MyAccountingVisitor; m+a : 4951
+DEBUG - 2016-10-20 10:20:15.693; com.avon.hr.expression.accounting.MyAccountingVisitor; blockValue=null
+DEBUG - 2016-10-20 10:20:15.693; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=a+1
+DEBUG - 2016-10-20 10:20:15.694; com.avon.hr.expression.accounting.MyAccountingVisitor; visitPlusOrMinus:a+1
+DEBUG - 2016-10-20 10:20:15.694; com.avon.hr.expression.accounting.MyAccountingVisitor; a+1 : 100
+DEBUG - 2016-10-20 10:20:15.695; com.avon.hr.expression.accounting.MyAccountingVisitor; ctx.result=false
+DEBUG - 2016-10-20 10:20:15.695; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
+DEBUG - 2016-10-20 10:20:15.695; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=4951
+DEBUG - 2016-10-20 10:20:15.718; com.avon.hr.expression.accounting.MyAccountingVisitor; visitStart
+DEBUG - 2016-10-20 10:20:15.718; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=SUM(1,3,5,7,9);
+DEBUG - 2016-10-20 10:20:15.724; com.avon.hr.expression.accounting.MyAccountingVisitor; visitFuncExpression:SUM(1,3,5,7,9)
+DEBUG - 2016-10-20 10:20:15.784; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
+DEBUG - 2016-10-20 10:20:15.786; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=25
+DEBUG - 2016-10-20 10:20:15.822; com.avon.hr.expression.accounting.MyAccountingVisitor; visitStart
+DEBUG - 2016-10-20 10:20:15.823; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=AVERAGE(1,3,5,7,9);
+DEBUG - 2016-10-20 10:20:15.824; com.avon.hr.expression.accounting.MyAccountingVisitor; visitFuncExpression:AVERAGE(1,3,5,7,9)
+DEBUG - 2016-10-20 10:20:15.831; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
+DEBUG - 2016-10-20 10:20:15.832; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=5.00
+DEBUG - 2016-10-20 10:20:15.839; com.avon.hr.expression.accounting.MyAccountingVisitor; visitStart
+DEBUG - 2016-10-20 10:20:15.840; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=MIN(10,13,5,7,9);
+DEBUG - 2016-10-20 10:20:15.840; com.avon.hr.expression.accounting.MyAccountingVisitor; visitFuncExpression:MIN(10,13,5,7,9)
+DEBUG - 2016-10-20 10:20:15.840; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
+DEBUG - 2016-10-20 10:20:15.841; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=5
+DEBUG - 2016-10-20 10:20:15.849; com.avon.hr.expression.accounting.MyAccountingVisitor; visitStart
+DEBUG - 2016-10-20 10:20:15.896; com.avon.hr.expression.accounting.MyAccountingVisitor; visitAssignVariable:a=MAX(10,13,5,7,9);
+DEBUG - 2016-10-20 10:20:15.897; com.avon.hr.expression.accounting.MyAccountingVisitor; visitFuncExpression:MAX(10,13,5,7,9)
+DEBUG - 2016-10-20 10:20:15.898; com.avon.hr.expression.accounting.MyAccountingVisitor; visitReturnStatement
+DEBUG - 2016-10-20 10:20:15.899; com.avon.hr.expression.accounting.MyAccountingVisitor; return value=13

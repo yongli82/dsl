@@ -11,8 +11,6 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.sun.tools.doclint.Entity.sum;
-
 
 /**
  * Created by yangyongli on 10/16/16.
@@ -21,6 +19,7 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
     Logger logger = Logger.getLogger(MyAccountingVisitor.class);
     private Map<String, BigDecimal> variables = null;
     private boolean isTerminal = false;
+    private Map<String, CustomiseFunction> functionMap = new HashMap<String, CustomiseFunction>();
 
     public MyAccountingVisitor(Map<String, BigDecimal> variables) {
         if (null != variables) {
@@ -28,6 +27,15 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
         } else {
             this.variables = new HashMap<String, BigDecimal>();
         }
+    }
+
+    public MyAccountingVisitor(Map<String, BigDecimal> variables, Map<String, CustomiseFunction> functionMap) {
+        this(variables);
+        this.functionMap = functionMap;
+    }
+
+    public void register(String functionName, CustomiseFunction function){
+        this.functionMap.put(functionName, function);
     }
 
 
@@ -88,10 +96,10 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
             logger.debug("yesblock");
             return visit(ctx.yesblock);
         } else {
-            if(ctx.noblock != null) {
+            if (ctx.noblock != null) {
                 logger.debug("noblock");
                 return visit(ctx.noblock);
-            }else{
+            } else {
                 //无 else 块
                 return null;
             }
@@ -182,7 +190,7 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
         AccountingParser.BlockContext block = ctx.block();
         logger.debug("for block: " + block.getText());
 
-        for(visit(forInitContext); BigDecimal.ONE.equals(visit(judgeExpressionContext)); visit(forUpdateContext)){
+        for (visit(forInitContext); BigDecimal.ONE.equals(visit(judgeExpressionContext)); visit(forUpdateContext)) {
             BigDecimal blockValue = visit(block);
             logger.debug("blockValue=" + blockValue);
         }
@@ -196,8 +204,6 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      * @return the visitor result
      */
     public BigDecimal visitForControl(AccountingParser.ForControlContext ctx) {
-
-
         return null;
     }
 
@@ -415,7 +421,7 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      * @return the visitor result
      */
     public BigDecimal visitOuterFunctionExpression(AccountingParser.OuterFunctionExpressionContext ctx) {
-        return null;
+        return visitChildren(ctx);
     }
 
     /**
@@ -441,34 +447,34 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
                 sum = sum.add(parameter);
             }
             return sum;
-        }else if (functionName.equals("AVERAGE")){
+        } else if (functionName.equals("AVERAGE")) {
             BigDecimal sum = BigDecimal.ZERO;
             for (BigDecimal parameter : parameters) {
                 sum = sum.add(parameter);
             }
             BigDecimal average = sum.divide(new BigDecimal(parameters.size()), 2, RoundingMode.HALF_UP);
             return average;
-        }else if (functionName.equals("MAX")){
+        } else if (functionName.equals("MAX")) {
             BigDecimal max = null;
             for (BigDecimal parameter : parameters) {
-                if(max == null){
+                if (max == null) {
                     max = parameter;
-                }else if (max.compareTo(parameter) < 0){
+                } else if (max.compareTo(parameter) < 0) {
                     max = parameter;
                 }
             }
             return max;
-        }else if (functionName.equals("MIN")){
+        } else if (functionName.equals("MIN")) {
             BigDecimal min = null;
             for (BigDecimal parameter : parameters) {
-                if(min == null){
+                if (min == null) {
                     min = parameter;
-                }else if (min.compareTo(parameter) > 0){
+                } else if (min.compareTo(parameter) > 0) {
                     min = parameter;
                 }
             }
             return min;
-        }else{
+        } else {
             throw new RuntimeException("Unsupported function [" + functionName + "]");
         }
     }
@@ -490,7 +496,24 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      * @return the visitor result
      */
     public BigDecimal visitOuterFunction(AccountingParser.OuterFunctionContext ctx) {
-        return null;
+        logger.debug("visitOuterFunction:" + ctx.getText());
+        String functionName = ctx.identifier().getText();
+        CustomiseFunction customiseFunction = this.functionMap.get(functionName);
+        if(null == customiseFunction){
+            throw new RuntimeException("Unsupported function [" + functionName + "]");
+        }
+
+        List<AccountingParser.ExpressionContext> expressionContextList = ctx.expression();
+        List<BigDecimal> parameters = Lists.newArrayList();
+        for (AccountingParser.ExpressionContext expressionContext : expressionContextList) {
+            BigDecimal value = visit(expressionContext);
+            parameters.add(value);
+        }
+
+        Object[] array = parameters.toArray();
+        BigDecimal value = customiseFunction.execute(array);
+
+        return value;
     }
 
     /**

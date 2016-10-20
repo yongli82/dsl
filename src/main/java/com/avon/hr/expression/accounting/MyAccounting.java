@@ -20,10 +20,7 @@ public class MyAccounting {
      * @return
      */
     public BigDecimal calculate(String expression, Map<String, BigDecimal> variables){
-        CharStream charStream = new ANTLRInputStream(expression);
-        AccountingLexer lexer = new AccountingLexer(charStream);
-        TokenStream tokens = new CommonTokenStream(lexer);
-        AccountingParser parser = new AccountingParser(tokens);
+        AccountingParser parser = getAccountingParser(expression);
 
         MyAccountingVisitor visitor = new MyAccountingVisitor(variables);
         Object result = visitor.visit(parser.start());
@@ -32,5 +29,29 @@ public class MyAccounting {
         }else{
             return null;
         }
+    }
+
+    /**
+     * 表达式计算器
+     * @param expression
+     * @return
+     */
+    public BigDecimal calculate(String expression, Map<String, BigDecimal> variables, Map<String, CustomiseFunction> functionMap){
+        AccountingParser parser = getAccountingParser(expression);
+
+        MyAccountingVisitor visitor = new MyAccountingVisitor(variables, functionMap);
+        Object result = visitor.visit(parser.start());
+        if(result instanceof BigDecimal) {
+            return (BigDecimal) result;
+        }else{
+            return null;
+        }
+    }
+
+    private AccountingParser getAccountingParser(String expression) {
+        CharStream charStream = new ANTLRInputStream(expression);
+        AccountingLexer lexer = new AccountingLexer(charStream);
+        TokenStream tokens = new CommonTokenStream(lexer);
+        return new AccountingParser(tokens);
     }
 }
