@@ -100,4 +100,39 @@ public class MyAccountingTest {
         assertEquals(new BigDecimal("4951"), result);
     }
 
+    @Test
+    public void calculate9() throws Exception {
+        String e = "a = SUM(1,3,5,7,9);\n" +
+                "return a;";
+        System.out.println(e);
+        BigDecimal result = m.calculate(e, null);
+        assertEquals(new BigDecimal("25"), result);
+    }
+
+    @Test
+    public void calculate10() throws Exception {
+        String e = "a = AVERAGE(1,3,5,7,9);\n" +
+                "return a;";
+        System.out.println(e);
+        BigDecimal result = m.calculate(e, null);
+        assertEquals(new BigDecimal("5.00"), result);
+    }
+
+    @Test
+    public void calculate11() throws Exception {
+        String e = "a = MIN(10,13,5,7,9);\n" +
+                "return a;";
+        System.out.println(e);
+        BigDecimal result = m.calculate(e, null);
+        assertEquals(new BigDecimal("5"), result);
+    }
+
+    @Test
+    public void calculate12() throws Exception {
+        String e = "a = MAX(10,13,5,7,9);\n" +
+                "return a;";
+        System.out.println(e);
+        BigDecimal result = m.calculate(e, null);
+        assertEquals(new BigDecimal("13"), result);
+    }
 }

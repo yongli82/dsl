@@ -192,7 +192,7 @@ public class AccountingBaseVisitor<T> extends AbstractParseTreeVisitor<T> implem
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	@Override public T visitFuncname(AccountingParser.FuncnameContext ctx) { return visitChildren(ctx); }
+	@Override public T visitInnerFunctionName(AccountingParser.InnerFunctionNameContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *

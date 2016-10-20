@@ -1,13 +1,17 @@
 package com.avon.hr.expression.accounting;
 
+import com.google.common.collect.Lists;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 import org.antlr.v4.runtime.tree.RuleNode;
 import org.apache.log4j.Logger;
 
 import java.math.BigDecimal;
+import java.math.RoundingMode;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
+
+import static com.sun.tools.doclint.Entity.sum;
 
 
 /**
@@ -421,27 +425,61 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      * @return the visitor result
      */
     public BigDecimal visitFuncExpression(AccountingParser.FuncExpressionContext ctx) {
-        AccountingParser.FuncnameContext funcname = ctx.funcname();
-        String funcnameText = funcname.getText();
-        if (funcnameText.equals("SUM")) {
+        logger.debug("visitFuncExpression:" + ctx.getText());
+        AccountingParser.InnerFunctionNameContext innerFunctionNameContext = ctx.innerFunctionName();
+        String functionName = innerFunctionNameContext.getText();
+        List<BigDecimal> parameters = Lists.newArrayList();
+        List<AccountingParser.ExpressionContext> expressionList = ctx.expression();
+        for (AccountingParser.ExpressionContext expressionContext : expressionList) {
+            BigDecimal decimal = visit(expressionContext);
+            parameters.add(decimal);
+        }
+
+        if (functionName.equals("SUM")) {
             BigDecimal sum = BigDecimal.ZERO;
-            List<AccountingParser.ExpressionContext> expressionList = ctx.expression();
-            for (AccountingParser.ExpressionContext expressionContext : expressionList) {
-                BigDecimal decimal = visit(expressionContext);
-                sum = sum.add(decimal);
+            for (BigDecimal parameter : parameters) {
+                sum = sum.add(parameter);
             }
             return sum;
+        }else if (functionName.equals("AVERAGE")){
+            BigDecimal sum = BigDecimal.ZERO;
+            for (BigDecimal parameter : parameters) {
+                sum = sum.add(parameter);
+            }
+            BigDecimal average = sum.divide(new BigDecimal(parameters.size()), 2, RoundingMode.HALF_UP);
+            return average;
+        }else if (functionName.equals("MAX")){
+            BigDecimal max = null;
+            for (BigDecimal parameter : parameters) {
+                if(max == null){
+                    max = parameter;
+                }else if (max.compareTo(parameter) < 0){
+                    max = parameter;
+                }
+            }
+            return max;
+        }else if (functionName.equals("MIN")){
+            BigDecimal min = null;
+            for (BigDecimal parameter : parameters) {
+                if(min == null){
+                    min = parameter;
+                }else if (min.compareTo(parameter) > 0){
+                    min = parameter;
+                }
+            }
+            return min;
+        }else{
+            throw new RuntimeException("Unsupported function [" + functionName + "]");
         }
-        return BigDecimal.ZERO;
     }
 
     /**
-     * Visit a parse tree produced by {@link AccountingParser#funcname}.
+     * Visit a parse tree produced by {@link AccountingParser#innerFunctionName}.
      *
      * @param ctx the parse tree
      * @return the visitor result
      */
-    public BigDecimal visitFuncname(AccountingParser.FuncnameContext ctx) {
+    public BigDecimal visitInnerFunctionName(AccountingParser.InnerFunctionNameContext ctx) {
         return null;
     }
 

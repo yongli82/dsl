@@ -34,12 +34,13 @@ public class AccountingParser extends Parser {
 		RULE_statement = 4, RULE_forControl = 5, RULE_forInit = 6, RULE_forUpdate = 7, 
 		RULE_expressionList = 8, RULE_judgeExpression = 9, RULE_assign = 10, RULE_expression = 11, 
 		RULE_multiplyingExpression = 12, RULE_atomExpression = 13, RULE_funcExpression = 14, 
-		RULE_funcname = 15, RULE_outerFunction = 16, RULE_number = 17, RULE_identifier = 18;
+		RULE_innerFunctionName = 15, RULE_outerFunction = 16, RULE_number = 17, 
+		RULE_identifier = 18;
 	public static final String[] ruleNames = {
 		"start", "methodBody", "block", "blockStatement", "statement", "forControl", 
 		"forInit", "forUpdate", "expressionList", "judgeExpression", "assign", 
 		"expression", "multiplyingExpression", "atomExpression", "funcExpression", 
-		"funcname", "outerFunction", "number", "identifier"
+		"innerFunctionName", "outerFunction", "number", "identifier"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
@@ -1319,8 +1320,8 @@ public class AccountingParser extends Parser {
 	}
 
 	public static class FuncExpressionContext extends ParserRuleContext {
-		public FuncnameContext funcname() {
-			return getRuleContext(FuncnameContext.class,0);
+		public InnerFunctionNameContext innerFunctionName() {
+			return getRuleContext(InnerFunctionNameContext.class,0);
 		}
 		public TerminalNode LPAREN() { return getToken(AccountingParser.LPAREN, 0); }
 		public List<ExpressionContext> expression() {
@@ -1353,7 +1354,7 @@ public class AccountingParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(176);
-			funcname();
+			innerFunctionName();
 			setState(177);
 			match(LPAREN);
 			setState(178);
@@ -1389,21 +1390,21 @@ public class AccountingParser extends Parser {
 		return _localctx;
 	}
 
-	public static class FuncnameContext extends ParserRuleContext {
-		public FuncnameContext(ParserRuleContext parent, int invokingState) {
+	public static class InnerFunctionNameContext extends ParserRuleContext {
+		public InnerFunctionNameContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_funcname; }
+		@Override public int getRuleIndex() { return RULE_innerFunctionName; }
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof AccountingVisitor ) return ((AccountingVisitor<? extends T>)visitor).visitFuncname(this);
+			if ( visitor instanceof AccountingVisitor ) return ((AccountingVisitor<? extends T>)visitor).visitInnerFunctionName(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final FuncnameContext funcname() throws RecognitionException {
-		FuncnameContext _localctx = new FuncnameContext(_ctx, getState());
-		enterRule(_localctx, 30, RULE_funcname);
+	public final InnerFunctionNameContext innerFunctionName() throws RecognitionException {
+		InnerFunctionNameContext _localctx = new InnerFunctionNameContext(_ctx, getState());
+		enterRule(_localctx, 30, RULE_innerFunctionName);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);

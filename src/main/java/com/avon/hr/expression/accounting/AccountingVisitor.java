@@ -176,11 +176,11 @@ public interface AccountingVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitFuncExpression(AccountingParser.FuncExpressionContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link AccountingParser#funcname}.
+	 * Visit a parse tree produced by {@link AccountingParser#innerFunctionName}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitFuncname(AccountingParser.FuncnameContext ctx);
+	T visitInnerFunctionName(AccountingParser.InnerFunctionNameContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link AccountingParser#outerFunction}.
 	 * @param ctx the parse tree

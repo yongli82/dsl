@@ -78,10 +78,10 @@ atomExpression
    ;
 
 funcExpression
-    : funcname LPAREN expression (COMMA expression)* RPAREN
+    : innerFunctionName LPAREN expression (COMMA expression)* RPAREN
     ;
 
-funcname
+innerFunctionName
    : 'SUM'
    | 'AVERAGE'
    | 'MAX'
