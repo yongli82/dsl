@@ -11,6 +11,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import static com.sun.tools.javac.jvm.ByteCodes.ret;
+
 
 /**
  * Created by yangyongli on 10/16/16.
@@ -89,21 +91,101 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      */
     public BigDecimal visitIfelseStatement(AccountingParser.IfelseStatementContext ctx) {
         logger.debug("visitIfelseStatement");
-        AccountingParser.JudgeExpressionContext judgeExpressionContext = ctx.judgeExpression();
-        BigDecimal judge = visit(judgeExpressionContext);
-        logger.debug("judge(" + judgeExpressionContext.getText() + "):" + judge.equals(BigDecimal.ONE));
-        if (judge.equals(BigDecimal.ONE)) {
-            logger.debug("yesblock");
-            return visit(ctx.yesblock);
-        } else {
-            if (ctx.noblock != null) {
-                logger.debug("noblock");
-                return visit(ctx.noblock);
-            } else {
-                //无 else 块
-                return null;
+//        AccountingParser.JudgeExpressionContext judgeExpressionContext = ctx.ifjudge;
+//        BigDecimal judge = visit(judgeExpressionContext);
+//        logger.debug("judge(" + judgeExpressionContext.getText() + "):" + judge.equals(BigDecimal.ONE));
+//        if (judge.equals(BigDecimal.ONE)) {
+//            logger.debug("yesblock");
+//            return visit(ctx.yesblock);
+//        } else {
+//
+//            ctx.
+//
+//            if (ctx.noblock != null) {
+//                logger.debug("noblock");
+//                return visit(ctx.noblock);
+//            } else {
+//                //无 else 块
+//                return null;
+//            }
+//        }
+
+        BigDecimal value = null;
+        AccountingParser.IfBranchContext ifBranchContext = ctx.ifBranch();
+        value = visit(ifBranchContext);
+        if (ifBranchContext.isMatch){
+            return value;
+        }
+
+        List<AccountingParser.ElseIfBranchContext> elseIfBranchContexts = ctx.elseIfBranch();
+        if(null != elseIfBranchContexts){
+            for (AccountingParser.ElseIfBranchContext elseIfBranchContext : elseIfBranchContexts) {
+                value = visit(elseIfBranchContext);
+                if (elseIfBranchContext.isMatch){
+                    return value;
+                }
             }
         }
+
+        AccountingParser.ElseBranchContext elseBranchContext = ctx.elseBranch();
+        if(null != elseBranchContext){
+            value = visit(elseBranchContext);
+            if(elseBranchContext.isMatch){
+                return value;
+            }
+        }
+
+        return value;
+    }
+
+    /**
+     * Visit a parse tree produced by {@link AccountingParser#ifBranch}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    public BigDecimal visitIfBranch(AccountingParser.IfBranchContext ctx) {
+        AccountingParser.JudgeExpressionContext judgeExpressionContext = ctx.judgeExpression();
+        visit(judgeExpressionContext);
+        boolean isMatch = judgeExpressionContext.result;
+        ctx.isMatch = isMatch;
+        if(isMatch){
+            logger.debug("Enter if branch: " + ctx.getText());
+            return visit(ctx.block());
+        }
+
+        return null;
+    }
+
+    /**
+     * Visit a parse tree produced by {@link AccountingParser#elseIfBranch}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    public BigDecimal visitElseIfBranch(AccountingParser.ElseIfBranchContext ctx) {
+        AccountingParser.JudgeExpressionContext judgeExpressionContext = ctx.judgeExpression();
+        visit(judgeExpressionContext);
+        boolean isMatch = judgeExpressionContext.result;
+        ctx.isMatch = isMatch;
+        if(isMatch){
+            logger.debug("Enter else if branch: " + ctx.getText());
+            return visit(ctx.block());
+        }
+
+        return null;
+    }
+
+    /**
+     * Visit a parse tree produced by {@link AccountingParser#elseBranch}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    public BigDecimal visitElseBranch(AccountingParser.ElseBranchContext ctx) {
+        logger.debug("Enter else branch: " + ctx.getText());
+        ctx.isMatch = true;
+        return visit(ctx.block());
     }
 
     /**
@@ -161,6 +243,7 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
     public BigDecimal visitContinueStatement(AccountingParser.ContinueStatementContext ctx) {
         return null;
     }
+
 
     /**
      * Visit a parse tree produced by {@link AccountingParser#statement}.

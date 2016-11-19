@@ -70,6 +70,24 @@ public interface AccountingVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitContinueStatement(AccountingParser.ContinueStatementContext ctx);
 	/**
+	 * Visit a parse tree produced by {@link AccountingParser#ifBranch}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitIfBranch(AccountingParser.IfBranchContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AccountingParser#elseIfBranch}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitElseIfBranch(AccountingParser.ElseIfBranchContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AccountingParser#elseBranch}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitElseBranch(AccountingParser.ElseBranchContext ctx);
+	/**
 	 * Visit a parse tree produced by {@link AccountingParser#forControl}.
 	 * @param ctx the parse tree
 	 * @return the visitor result

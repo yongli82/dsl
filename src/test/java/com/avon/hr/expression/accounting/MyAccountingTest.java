@@ -135,4 +135,48 @@ public class MyAccountingTest {
         BigDecimal result = m.calculate(e, null);
         assertEquals(new BigDecimal("13"), result);
     }
+
+    @Test
+    public void calculate13() throws Exception {
+        String e = "计税金额 = 基本工资 - 社保缴费 - 5000;\n" +
+                "if (计税金额 < 0) {\n" +
+                "    个税 = 0\n" +
+                "} else if (计税金额 < 1500) {\n" +
+                "    个税 = 计税金额 * 0.03\n" +
+                "} else if (计税金额 < 4500) {\n" +
+                "    个税 = 计税金额 * 0.1 - 105;\n" +
+                "} else if (计税金额 < 9000) {\n" +
+                "    个税 = 计税金额 * 0.2 - 555;\n" +
+                "} else if (计税金额 < 35000) {\n" +
+                "    个税 = 计税金额 * 0.25 - 1005;\n" +
+                "} else if (计税金额 < 55000) {\n" +
+                "    个税 = 计税金额 * 0.3 - 2755;\n" +
+                "} else if (计税金额 < 80000) {\n" +
+                "    个税 = 计税金额 * 0.35 - 5505;\n" +
+                "} else {\n" +
+                "    个税 = 计税金额 * 0.45 - 13505;\n" +
+                "} \n" +
+                "return 基本工资 - 社保缴费 - 个税;";
+        System.out.println(e);
+
+        Map<String, BigDecimal> map = new HashMap<String, BigDecimal>();
+        map.put("基本工资", new BigDecimal("10000"));
+        map.put("社保缴费", new BigDecimal("1000"));
+        BigDecimal result = m.calculate(e, map);
+        assertEquals(new BigDecimal("8705.0"), result);
+
+        map.put("基本工资", new BigDecimal("20000"));
+        result = m.calculate(e, map);
+        assertEquals(new BigDecimal("16505.00"), result);
+
+        map.put("基本工资", new BigDecimal("30000"));
+        map.put("社保缴费", new BigDecimal("3000"));
+        result = m.calculate(e, map);
+        assertEquals(new BigDecimal("22505.00"), result);
+
+        map.put("基本工资", new BigDecimal("300000"));
+        map.put("社保缴费", new BigDecimal("30000"));
+        result = m.calculate(e, map);
+        assertEquals(new BigDecimal("164255.00"), result);
+    }
 }

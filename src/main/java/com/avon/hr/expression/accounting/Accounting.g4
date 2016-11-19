@@ -29,11 +29,23 @@ blockStatement
     ;
 
 statement
-    :   'if' '(' judgeExpression ')' '{' yesblock=block '}' ('else {' noblock=block '}')? (';'| NEWLINE)?#ifelseStatement
+    :   ifBranch (elseIfBranch)* (elseBranch)? (';'| NEWLINE)?#ifelseStatement
     |   'for' '(' forControl ')' '{' block '}' (';'| NEWLINE)? #forStatement
     |   'return' expression? (';'| NEWLINE)? #returnStatement
     |   'break' identifier? (';'| NEWLINE)?#breakStatement
     |   'continue' identifier? (';'| NEWLINE)?#continueStatement
+    ;
+
+ifBranch returns [boolean isMatch]
+    :   'if' '(' judgeExpression ')' '{' block '}'
+    ;
+
+elseIfBranch returns [boolean isMatch]
+    :   'else' 'if' '(' judgeExpression ')' '{' block '}'
+    ;
+
+elseBranch returns [boolean isMatch]
+    :   'else' '{' noblock=block '}'
     ;
 
 forControl
