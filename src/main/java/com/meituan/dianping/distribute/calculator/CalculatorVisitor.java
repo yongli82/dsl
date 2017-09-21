@@ -1,7 +1,5 @@
 package com.meituan.dianping.distribute.calculator;
 
-import com.yang.dsl.calculator.CalculatorLexer;
-
 import java.util.HashMap;
 import java.util.Map;
 
