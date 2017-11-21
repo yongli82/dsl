@@ -17,25 +17,25 @@ public class StatementParser extends Parser {
 	protected static final PredictionContextCache _sharedContextCache =
 		new PredictionContextCache();
 	public static final int
-		T__0=1, T__1=2, T__2=3, T__3=4, LPAREN=5, RPAREN=6, PLUS=7, MINUS=8, TIMES=9, 
-		DIV=10, POINT=11, LETTER=12, DIGIT=13, COMMA=14, WS=15, COMMENT=16, LINE_COMMENT=17, 
-		NEWLINE=18, SEMICOLON=19;
+		LPAREN=1, RPAREN=2, PLUS=3, MINUS=4, TIMES=5, DIV=6, POINT=7, LETTER=8, 
+		DIGIT=9, COMMA=10, WS=11, COMMENT=12, LINE_COMMENT=13, NEWLINE=14, SEMICOLON=15, 
+		Identifier=16;
 	public static final int
 		RULE_statement = 0, RULE_expression = 1, RULE_multiplyingExpression = 2, 
-		RULE_atomExpression = 3, RULE_number = 4, RULE_variable = 5, RULE_label = 6;
+		RULE_atomExpression = 3, RULE_number = 4, RULE_variable = 5, RULE_identifier = 6;
 	public static final String[] ruleNames = {
 		"statement", "expression", "multiplyingExpression", "atomExpression", 
-		"number", "variable", "label"
+		"number", "variable", "identifier"
 	};
 
 	private static final String[] _LITERAL_NAMES = {
-		null, "'S'", "'A'", "'B'", "'C'", "'('", "')'", "'+'", "'-'", "'*'", "'/'", 
-		"'.'", null, null, "','", null, null, null, null, "';'"
+		null, "'('", "')'", "'+'", "'-'", "'*'", "'/'", "'.'", null, null, "','", 
+		null, null, null, null, "';'"
 	};
 	private static final String[] _SYMBOLIC_NAMES = {
-		null, null, null, null, null, "LPAREN", "RPAREN", "PLUS", "MINUS", "TIMES", 
-		"DIV", "POINT", "LETTER", "DIGIT", "COMMA", "WS", "COMMENT", "LINE_COMMENT", 
-		"NEWLINE", "SEMICOLON"
+		null, "LPAREN", "RPAREN", "PLUS", "MINUS", "TIMES", "DIV", "POINT", "LETTER", 
+		"DIGIT", "COMMA", "WS", "COMMENT", "LINE_COMMENT", "NEWLINE", "SEMICOLON", 
+		"Identifier"
 	};
 	public static final Vocabulary VOCABULARY = new VocabularyImpl(_LITERAL_NAMES, _SYMBOLIC_NAMES);
 
@@ -651,8 +651,8 @@ public class StatementParser extends Parser {
 	}
 
 	public static class VariableContext extends ParserRuleContext {
-		public LabelContext label() {
-			return getRuleContext(LabelContext.class,0);
+		public IdentifierContext identifier() {
+			return getRuleContext(IdentifierContext.class,0);
 		}
 		public VariableContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
@@ -681,7 +681,7 @@ public class StatementParser extends Parser {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(66);
-			label();
+			identifier();
 			setState(68);
 			_errHandler.sync(this);
 			switch ( getInterpreter().adaptivePredict(_input,7,_ctx) ) {
@@ -713,36 +713,38 @@ public class StatementParser extends Parser {
 		return _localctx;
 	}
 
-	public static class LabelContext extends ParserRuleContext {
-		public LabelContext(ParserRuleContext parent, int invokingState) {
+	public static class IdentifierContext extends ParserRuleContext {
+		public TerminalNode Identifier() { return getToken(StatementParser.Identifier, 0); }
+		public TerminalNode LETTER() { return getToken(StatementParser.LETTER, 0); }
+		public IdentifierContext(ParserRuleContext parent, int invokingState) {
 			super(parent, invokingState);
 		}
-		@Override public int getRuleIndex() { return RULE_label; }
+		@Override public int getRuleIndex() { return RULE_identifier; }
 		@Override
 		public void enterRule(ParseTreeListener listener) {
-			if ( listener instanceof StatementListener ) ((StatementListener)listener).enterLabel(this);
+			if ( listener instanceof StatementListener ) ((StatementListener)listener).enterIdentifier(this);
 		}
 		@Override
 		public void exitRule(ParseTreeListener listener) {
-			if ( listener instanceof StatementListener ) ((StatementListener)listener).exitLabel(this);
+			if ( listener instanceof StatementListener ) ((StatementListener)listener).exitIdentifier(this);
 		}
 		@Override
 		public <T> T accept(ParseTreeVisitor<? extends T> visitor) {
-			if ( visitor instanceof StatementVisitor ) return ((StatementVisitor<? extends T>)visitor).visitLabel(this);
+			if ( visitor instanceof StatementVisitor ) return ((StatementVisitor<? extends T>)visitor).visitIdentifier(this);
 			else return visitor.visitChildren(this);
 		}
 	}
 
-	public final LabelContext label() throws RecognitionException {
-		LabelContext _localctx = new LabelContext(_ctx, getState());
-		enterRule(_localctx, 12, RULE_label);
+	public final IdentifierContext identifier() throws RecognitionException {
+		IdentifierContext _localctx = new IdentifierContext(_ctx, getState());
+		enterRule(_localctx, 12, RULE_identifier);
 		int _la;
 		try {
 			enterOuterAlt(_localctx, 1);
 			{
 			setState(70);
 			_la = _input.LA(1);
-			if ( !((((_la) & ~0x3f) == 0 && ((1L << _la) & ((1L << T__0) | (1L << T__1) | (1L << T__2) | (1L << T__3))) != 0)) ) {
+			if ( !(_la==LETTER || _la==Identifier) ) {
 			_errHandler.recoverInline(this);
 			}
 			else {
@@ -788,26 +790,26 @@ public class StatementParser extends Parser {
 	}
 
 	public static final String _serializedATN =
-		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\25K\4\2\t\2\4\3\t"+
+		"\3\u608b\ua72a\u8133\ub9ed\u417c\u3be7\u7786\u5964\3\22K\4\2\t\2\4\3\t"+
 		"\3\4\4\t\4\4\5\t\5\4\6\t\6\4\7\t\7\4\b\t\b\3\2\3\2\3\3\3\3\3\3\3\3\3\3"+
 		"\3\3\7\3\31\n\3\f\3\16\3\34\13\3\3\4\3\4\3\4\3\4\3\4\3\4\7\4$\n\4\f\4"+
 		"\16\4\'\13\4\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\3\5\5\5\63\n\5\3\6\5"+
 		"\6\66\n\6\3\6\6\69\n\6\r\6\16\6:\3\6\3\6\6\6?\n\6\r\6\16\6@\5\6C\n\6\3"+
-		"\7\3\7\5\7G\n\7\3\b\3\b\3\b\2\4\4\6\t\2\4\6\b\n\f\16\2\5\3\2\t\n\3\2\13"+
-		"\f\3\2\3\6\2M\2\20\3\2\2\2\4\22\3\2\2\2\6\35\3\2\2\2\b\62\3\2\2\2\n\65"+
-		"\3\2\2\2\fD\3\2\2\2\16H\3\2\2\2\20\21\5\4\3\2\21\3\3\2\2\2\22\23\b\3\1"+
-		"\2\23\24\5\6\4\2\24\32\3\2\2\2\25\26\f\4\2\2\26\27\t\2\2\2\27\31\5\6\4"+
-		"\2\30\25\3\2\2\2\31\34\3\2\2\2\32\30\3\2\2\2\32\33\3\2\2\2\33\5\3\2\2"+
-		"\2\34\32\3\2\2\2\35\36\b\4\1\2\36\37\5\b\5\2\37%\3\2\2\2 !\f\4\2\2!\""+
-		"\t\3\2\2\"$\5\b\5\2# \3\2\2\2$\'\3\2\2\2%#\3\2\2\2%&\3\2\2\2&\7\3\2\2"+
-		"\2\'%\3\2\2\2(\63\5\n\6\2)\63\5\f\7\2*+\7\7\2\2+,\5\f\7\2,-\7\b\2\2-\63"+
-		"\3\2\2\2./\7\7\2\2/\60\5\4\3\2\60\61\7\b\2\2\61\63\3\2\2\2\62(\3\2\2\2"+
-		"\62)\3\2\2\2\62*\3\2\2\2\62.\3\2\2\2\63\t\3\2\2\2\64\66\7\n\2\2\65\64"+
-		"\3\2\2\2\65\66\3\2\2\2\668\3\2\2\2\679\7\17\2\28\67\3\2\2\29:\3\2\2\2"+
-		":8\3\2\2\2:;\3\2\2\2;B\3\2\2\2<>\7\r\2\2=?\7\17\2\2>=\3\2\2\2?@\3\2\2"+
-		"\2@>\3\2\2\2@A\3\2\2\2AC\3\2\2\2B<\3\2\2\2BC\3\2\2\2C\13\3\2\2\2DF\5\16"+
-		"\b\2EG\t\2\2\2FE\3\2\2\2FG\3\2\2\2G\r\3\2\2\2HI\t\4\2\2I\17\3\2\2\2\n"+
-		"\32%\62\65:@BF";
+		"\7\3\7\5\7G\n\7\3\b\3\b\3\b\2\4\4\6\t\2\4\6\b\n\f\16\2\5\3\2\5\6\3\2\7"+
+		"\b\4\2\n\n\22\22\2M\2\20\3\2\2\2\4\22\3\2\2\2\6\35\3\2\2\2\b\62\3\2\2"+
+		"\2\n\65\3\2\2\2\fD\3\2\2\2\16H\3\2\2\2\20\21\5\4\3\2\21\3\3\2\2\2\22\23"+
+		"\b\3\1\2\23\24\5\6\4\2\24\32\3\2\2\2\25\26\f\4\2\2\26\27\t\2\2\2\27\31"+
+		"\5\6\4\2\30\25\3\2\2\2\31\34\3\2\2\2\32\30\3\2\2\2\32\33\3\2\2\2\33\5"+
+		"\3\2\2\2\34\32\3\2\2\2\35\36\b\4\1\2\36\37\5\b\5\2\37%\3\2\2\2 !\f\4\2"+
+		"\2!\"\t\3\2\2\"$\5\b\5\2# \3\2\2\2$\'\3\2\2\2%#\3\2\2\2%&\3\2\2\2&\7\3"+
+		"\2\2\2\'%\3\2\2\2(\63\5\n\6\2)\63\5\f\7\2*+\7\3\2\2+,\5\f\7\2,-\7\4\2"+
+		"\2-\63\3\2\2\2./\7\3\2\2/\60\5\4\3\2\60\61\7\4\2\2\61\63\3\2\2\2\62(\3"+
+		"\2\2\2\62)\3\2\2\2\62*\3\2\2\2\62.\3\2\2\2\63\t\3\2\2\2\64\66\7\6\2\2"+
+		"\65\64\3\2\2\2\65\66\3\2\2\2\668\3\2\2\2\679\7\13\2\28\67\3\2\2\29:\3"+
+		"\2\2\2:8\3\2\2\2:;\3\2\2\2;B\3\2\2\2<>\7\t\2\2=?\7\13\2\2>=\3\2\2\2?@"+
+		"\3\2\2\2@>\3\2\2\2@A\3\2\2\2AC\3\2\2\2B<\3\2\2\2BC\3\2\2\2C\13\3\2\2\2"+
+		"DF\5\16\b\2EG\t\2\2\2FE\3\2\2\2FG\3\2\2\2G\r\3\2\2\2HI\t\4\2\2I\17\3\2"+
+		"\2\2\n\32%\62\65:@BF";
 	public static final ATN _ATN =
 		new ATNDeserializer().deserialize(_serializedATN.toCharArray());
 	static {

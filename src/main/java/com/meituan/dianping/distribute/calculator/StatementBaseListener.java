@@ -148,13 +148,13 @@ public class StatementBaseListener implements StatementListener {
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void enterLabel(StatementParser.LabelContext ctx) { }
+	@Override public void enterIdentifier(StatementParser.IdentifierContext ctx) { }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation does nothing.</p>
 	 */
-	@Override public void exitLabel(StatementParser.LabelContext ctx) { }
+	@Override public void exitIdentifier(StatementParser.IdentifierContext ctx) { }
 
 	/**
 	 * {@inheritDoc}

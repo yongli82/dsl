@@ -17,82 +17,82 @@ public class StatementBaseVisitor<T> extends AbstractParseTreeVisitor<T> impleme
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	 public T visitStatement(StatementParser.StatementContext ctx) { return visitChildren(ctx); }
+	@Override public T visitStatement(StatementParser.StatementContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	 public T visitSinglePlusOrMinus(StatementParser.SinglePlusOrMinusContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSinglePlusOrMinus(StatementParser.SinglePlusOrMinusContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	 public T visitPlusOrMinus(StatementParser.PlusOrMinusContext ctx) { return visitChildren(ctx); }
+	@Override public T visitPlusOrMinus(StatementParser.PlusOrMinusContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	 public T visitSingleTimesOrDiv(StatementParser.SingleTimesOrDivContext ctx) { return visitChildren(ctx); }
+	@Override public T visitSingleTimesOrDiv(StatementParser.SingleTimesOrDivContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	 public T visitTimesOrDiv(StatementParser.TimesOrDivContext ctx) { return visitChildren(ctx); }
+	@Override public T visitTimesOrDiv(StatementParser.TimesOrDivContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	 public T visitAtomNumber(StatementParser.AtomNumberContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAtomNumber(StatementParser.AtomNumberContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	 public T visitAtomToken(StatementParser.AtomTokenContext ctx) { return visitChildren(ctx); }
+	@Override public T visitAtomToken(StatementParser.AtomTokenContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	 public T visitParenToken(StatementParser.ParenTokenContext ctx) { return visitChildren(ctx); }
+	@Override public T visitParenToken(StatementParser.ParenTokenContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	 public T visitParen(StatementParser.ParenContext ctx) { return visitChildren(ctx); }
+	@Override public T visitParen(StatementParser.ParenContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	 public T visitNumber(StatementParser.NumberContext ctx) { return visitChildren(ctx); }
+	@Override public T visitNumber(StatementParser.NumberContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	 public T visitVariable(StatementParser.VariableContext ctx) { return visitChildren(ctx); }
+	@Override public T visitVariable(StatementParser.VariableContext ctx) { return visitChildren(ctx); }
 	/**
 	 * {@inheritDoc}
 	 *
 	 * <p>The default implementation returns the result of calling
 	 * {@link #visitChildren} on {@code ctx}.</p>
 	 */
-	 public T visitLabel(StatementParser.LabelContext ctx) { return visitChildren(ctx); }
+	@Override public T visitIdentifier(StatementParser.IdentifierContext ctx) { return visitChildren(ctx); }
 }

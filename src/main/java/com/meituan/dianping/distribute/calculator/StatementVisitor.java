@@ -85,9 +85,9 @@ public interface StatementVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitVariable(StatementParser.VariableContext ctx);
 	/**
-	 * Visit a parse tree produced by {@link StatementParser#label}.
+	 * Visit a parse tree produced by {@link StatementParser#identifier}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
 	 */
-	T visitLabel(StatementParser.LabelContext ctx);
+	T visitIdentifier(StatementParser.IdentifierContext ctx);
 }

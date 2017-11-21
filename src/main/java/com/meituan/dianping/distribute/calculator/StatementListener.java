@@ -134,13 +134,13 @@ public interface StatementListener extends ParseTreeListener {
 	 */
 	void exitVariable(StatementParser.VariableContext ctx);
 	/**
-	 * Enter a parse tree produced by {@link StatementParser#label}.
+	 * Enter a parse tree produced by {@link StatementParser#identifier}.
 	 * @param ctx the parse tree
 	 */
-	void enterLabel(StatementParser.LabelContext ctx);
+	void enterIdentifier(StatementParser.IdentifierContext ctx);
 	/**
-	 * Exit a parse tree produced by {@link StatementParser#label}.
+	 * Exit a parse tree produced by {@link StatementParser#identifier}.
 	 * @param ctx the parse tree
 	 */
-	void exitLabel(StatementParser.LabelContext ctx);
+	void exitIdentifier(StatementParser.IdentifierContext ctx);
 }

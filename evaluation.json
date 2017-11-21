@@ -1,0 +1,139 @@
+{
+  "id": 65587,
+  "evaluationId": 65587,
+  "subUnitSettingId": 345,
+  "description": "<img src=\"http://mss.sankuai.com/v1/mss_beb8568dae034a508fb2d11abbf9920e/evaluation/evaluationImg%2FImg%2F4c4dbfcab7cf805f9f2fbf1bc75039aa\" alt=\"\" style=\"width: 937px; height: 184px;\"><br><div><br></div><a style=\"color: #118BFB;\" target=\"_blank\" href=\"https://www.dpfile.com/ba/es/evaluation-new-static-web/basic_value_rule.pdf\">价值观行为评价标准</a><div><br></div>",
+  "status": "0",
+  "selfTotalScore": "91.15",
+  "selfComments": "本季度除了在项目上做到了技术支撑之外，还在 leader @士兴 的辅导下突破了职业发展瓶颈，对未来发展有了更清晰的可实行的计划。下个季度计划会围绕「做规划、做复盘」来做更多的事。",
+  "manageScore": "0",
+  "manageWeight": "100",
+  "complexScore": "0",
+  "invitedTotalScore": "0",
+  "manageCommentList": [
+    {
+      "name": "梁士兴",
+      "comment": null
+    }
+  ],
+  "moduleList": [
+    {
+      "id": 120,
+      "title": "业绩",
+      "type": "1",
+      "weight": "70",
+      "list": [
+        {
+          "sequence": 1,
+          "moduleId": 120,
+          "id": 1513407,
+          "quota": "Xtreme：关键技术方案设计与评审、代码质量控制、架构问题梳理、需求设计、功能开发",
+          "result": "完成各项关键技术方案的设计与评审、坚持日常代码质量控制、定期梳理和优化架构问题、对所有需求（本季度约 40+需求）都参与了设计，对部份关键功能进行开发。",
+          "selfWeight": "45",
+          "score": "85",
+          "manageWeight": "0",
+          "isDelete": false
+        },
+        {
+          "sequence": 2,
+          "id": 0,
+          "quota": "知乎 Live《美团旅行前端技术架构实践与思考》",
+          "result": "摸透整个酒旅的技术架构，顺利完成稿件撰写、Live 直播、稿件整理对外发布，截至 21 日 Live 参与人数 481 人、知乎文字稿点赞数 250 个，前端早读课公众号转发，获得外界对我们团队的一致好评，为我们的招聘带来良好的正面作用。",
+          "selfWeight": "30",
+          "score": "95",
+          "isDelete": false
+        },
+        {
+          "sequence": 3,
+          "id": 0,
+          "quota": "每月至少 1 场分享",
+          "result": "完成 4 场分享，其中 2 场内部分享、2 场外部分享。",
+          "selfWeight": "15",
+          "score": "94",
+          "isDelete": false
+        },
+        {
+          "sequence": 4,
+          "id": 0,
+          "quota": "支持校招面试",
+          "result": "共面试 19 人，第一天高密度面试 11 个。",
+          "selfWeight": "5",
+          "score": "94",
+          "isDelete": false
+        },
+        {
+          "sequence": 5,
+          "id": 0,
+          "quota": "参加面试官培训，达到旁听目标（5 人）",
+          "result": "共旁听 6 人，提出观点及旁听评价。",
+          "selfWeight": "5",
+          "score": "94",
+          "isDelete": false
+        }
+      ]
+    },
+    {
+      "id": 121,
+      "title": "行为",
+      "type": "2",
+      "weight": "30",
+      "list": [
+        {
+          "sequence": 1,
+          "moduleId": 121,
+          "id": 1513408,
+          "quota": "以客户为中心",
+          "result": "创造惊喜（杰出标杆）\n客户为先（超出期望）\n主动服务（标准期望）\n快速响应（底线要求）",
+          "selfWeight": "25",
+          "score": "90",
+          "manageWeight": "25",
+          "comments": "快速响应所有合作伙伴，包括但不仅限于公司同事、外部合作方（如 100offer）、各面试者。\n",
+          "isDelete": false
+        },
+        {
+          "sequence": 2,
+          "moduleId": 121,
+          "id": 1513409,
+          "quota": "正直诚信",
+          "result": "挺身而出（杰出标杆）\n言行坦荡（超出期望）\n实事求是（标准期望）\n不弄虚作假（底线要求）",
+          "selfWeight": "25",
+          "score": "94",
+          "manageWeight": "25",
+          "comments": "100offer 提供的感谢费主动报备阳光平台。",
+          "isDelete": false
+        },
+        {
+          "sequence": 3,
+          "moduleId": 121,
+          "id": 1513410,
+          "quota": "合作共赢",
+          "result": "凝聚共赢（杰出标杆）\n兼容并包（超出期望）\n主人翁意识（标准期望）\n积极融入（底线要求）",
+          "selfWeight": "25",
+          "score": "94",
+          "manageWeight": "25",
+          "comments": "主动和坚持辅导团队成员做估时时的准确性（协助需求拆分）；与各同事友好相处，广结好友，为以后做推动工作打更好的基础；积极做技术分享且日常经常在推荐优质资源以提高集团团队整体水平；主动站在团队的角度思考效率提高的方法；乐于分享工作心得感悟。",
+          "isDelete": false
+        },
+        {
+          "sequence": 4,
+          "moduleId": 121,
+          "id": 1513411,
+          "quota": "追求卓越",
+          "result": "极致开拓（杰出标杆）\n求变自新（超出期望）\n目标导向（标准期望）\n敬业爱岗（底线要求）",
+          "selfWeight": "25",
+          "score": "95",
+          "manageWeight": "25",
+          "comments": "坚持对自身和团队追求卓越的精神，包括坚持日常的代码质量高要求、时刻对团队成员进行辅导，积极向各方寻找职业发展方向以突破瓶颈、跟进团队成员学习计划。",
+          "isDelete": false
+        }
+      ]
+    }
+  ],
+  "employeeId": "03018213",
+  "isMapLevel": "1",
+  "isCalcTotal": "1",
+  "isConclusion": "1",
+  "isShowBoundsRate": "1",
+  "periodName": "2017年第三季度考核(美团平台及酒旅事业群-Q3季度考核)",
+  "isIncludeSelfDecision": 1
+}
