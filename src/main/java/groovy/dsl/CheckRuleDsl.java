@@ -19,10 +19,15 @@ public class CheckRuleDsl {
         rules.add("C >= 5");
 
         Binding binding = new Binding();
-        binding.setVariable("A", 20.0);
+        binding.setVariable("S", 5.0);
+        binding.setVariable("A", 5.0);
+        binding.setVariable("BP", 30.0);
         binding.setVariable("B", 30.0);
+        binding.setVariable("C", 30.0);
         GroovyShell shell = new GroovyShell(binding);
-        Object result = shell.evaluate("A * weightA + B * weightB");
-        System.out.println(result);
+        for (String rule : rules) {
+            Object result = shell.evaluate(rule);
+            System.out.println(result);
+        }
     }
 }
