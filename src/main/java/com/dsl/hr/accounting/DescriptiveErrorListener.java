@@ -1,4 +1,4 @@
-package com.avon.hr.accounting;
+package com.dsl.hr.accounting;
 
 import org.antlr.v4.runtime.BaseErrorListener;
 import org.antlr.v4.runtime.RecognitionException;

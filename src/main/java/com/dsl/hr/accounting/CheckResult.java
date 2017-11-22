@@ -1,4 +1,4 @@
-package com.avon.hr.accounting;
+package com.dsl.hr.accounting;
 
 import com.google.common.collect.Lists;
 import org.apache.commons.lang3.builder.ToStringBuilder;

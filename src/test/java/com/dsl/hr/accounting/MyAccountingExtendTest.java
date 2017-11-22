@@ -1,6 +1,6 @@
-package com.avon.hr.accounting;
+package com.dsl.hr.accounting;
 
-import com.avon.hr.accounting.function.SummaryAndDouble;
+import com.dsl.hr.accounting.function.SummaryAndDouble;
 import org.junit.Before;
 import org.junit.Test;
 

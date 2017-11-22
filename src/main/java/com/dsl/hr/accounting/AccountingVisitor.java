@@ -1,5 +1,5 @@
-// Generated from /Users/yangyongli/Spring/avon/src/main/java/com/avon/hr/accounting/Accounting.g4 by ANTLR 4.7
-package com.avon.hr.accounting;
+// Generated from /Users/yangyongli/Spring/dsl/src/main/java/com/dsl/hr/accounting/Accounting.g4 by ANTLR 4.7
+package com.dsl.hr.accounting;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**

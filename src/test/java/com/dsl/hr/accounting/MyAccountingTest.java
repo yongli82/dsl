@@ -1,4 +1,4 @@
-package com.avon.hr.accounting;
+package com.dsl.hr.accounting;
 
 import org.junit.Before;
 import org.junit.Test;
