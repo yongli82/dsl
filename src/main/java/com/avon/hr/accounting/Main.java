@@ -1,7 +1,7 @@
-package com.avon.hr.expression.accounting;
+package com.avon.hr.accounting;
 
-import org.antlr.v4.runtime.ANTLRInputStream;
 import org.antlr.v4.runtime.CharStream;
+import org.antlr.v4.runtime.CharStreams;
 import org.antlr.v4.runtime.CommonTokenStream;
 import org.antlr.v4.runtime.TokenStream;
 
@@ -12,7 +12,7 @@ public class Main {
 
     public static void main(String[] args) {
         String someLangSourceCode = "a=10;\nb=20;\na * b";
-        CharStream charStream = new ANTLRInputStream(someLangSourceCode);
+        CharStream charStream = CharStreams.fromString(someLangSourceCode);
         AccountingLexer lexer = new AccountingLexer(charStream);
         TokenStream tokens = new CommonTokenStream(lexer);
         AccountingParser parser = new AccountingParser(tokens);

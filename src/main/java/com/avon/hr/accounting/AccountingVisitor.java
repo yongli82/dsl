@@ -1,5 +1,5 @@
-// Generated from /Users/yangyongli/Projects/dsl/src/main/java/com/avon/hr/expression/accounting/Accounting.g4 by ANTLR 4.5.3
-package com.avon.hr.expression.accounting;
+// Generated from /Users/yangyongli/Spring/avon/src/main/java/com/avon/hr/accounting/Accounting.g4 by ANTLR 4.7
+package com.avon.hr.accounting;
 import org.antlr.v4.runtime.tree.ParseTreeVisitor;
 
 /**
@@ -49,27 +49,6 @@ public interface AccountingVisitor<T> extends ParseTreeVisitor<T> {
 	 */
 	T visitForStatement(AccountingParser.ForStatementContext ctx);
 	/**
-	 * Visit a parse tree produced by the {@code returnStatement}
-	 * labeled alternative in {@link AccountingParser#statement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitReturnStatement(AccountingParser.ReturnStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code breakStatement}
-	 * labeled alternative in {@link AccountingParser#statement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitBreakStatement(AccountingParser.BreakStatementContext ctx);
-	/**
-	 * Visit a parse tree produced by the {@code continueStatement}
-	 * labeled alternative in {@link AccountingParser#statement}.
-	 * @param ctx the parse tree
-	 * @return the visitor result
-	 */
-	T visitContinueStatement(AccountingParser.ContinueStatementContext ctx);
-	/**
 	 * Visit a parse tree produced by {@link AccountingParser#ifBranch}.
 	 * @param ctx the parse tree
 	 * @return the visitor result
@@ -87,6 +66,12 @@ public interface AccountingVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitElseBranch(AccountingParser.ElseBranchContext ctx);
+	/**
+	 * Visit a parse tree produced by {@link AccountingParser#returnStatement}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitReturnStatement(AccountingParser.ReturnStatementContext ctx);
 	/**
 	 * Visit a parse tree produced by {@link AccountingParser#forControl}.
 	 * @param ctx the parse tree
@@ -124,6 +109,13 @@ public interface AccountingVisitor<T> extends ParseTreeVisitor<T> {
 	 * @return the visitor result
 	 */
 	T visitAssignVariable(AccountingParser.AssignVariableContext ctx);
+	/**
+	 * Visit a parse tree produced by the {@code booleanNumber}
+	 * labeled alternative in {@link AccountingParser#expression}.
+	 * @param ctx the parse tree
+	 * @return the visitor result
+	 */
+	T visitBooleanNumber(AccountingParser.BooleanNumberContext ctx);
 	/**
 	 * Visit a parse tree produced by the {@code singlePlusOrMinus}
 	 * labeled alternative in {@link AccountingParser#expression}.

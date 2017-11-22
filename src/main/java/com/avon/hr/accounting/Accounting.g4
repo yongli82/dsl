@@ -12,28 +12,25 @@ grammar Accounting;
  10. 变量支持中文
  */
 
-start: methodBody;
+start: '='? methodBody;
 
 methodBody
     : block
     ;
 
 block
-    : (blockStatement)*
+    : (blockStatement)* returnStatement?
     ;
 
 blockStatement
-    :   assign (';'| NEWLINE)?
-    |   statement (';'| NEWLINE)?
-    |   expression (';'| NEWLINE)?
+    :   assign (SEMICOLON| NEWLINE)?
+    |   statement (SEMICOLON| NEWLINE)?
+    |   expression (SEMICOLON| NEWLINE)?
     ;
 
 statement
-    :   ifBranch (elseIfBranch)* (elseBranch)? (';'| NEWLINE)?#ifelseStatement
-    |   'for' '(' forControl ')' '{' block '}' (';'| NEWLINE)? #forStatement
-    |   'return' expression? (';'| NEWLINE)? #returnStatement
-    |   'break' identifier? (';'| NEWLINE)?#breakStatement
-    |   'continue' identifier? (';'| NEWLINE)?#continueStatement
+    :   ifBranch (elseIfBranch)* (elseBranch)? (SEMICOLON| NEWLINE)? #ifelseStatement
+    |   'for' '(' forControl ')' '{' block '}' (SEMICOLON| NEWLINE)? #forStatement
     ;
 
 ifBranch returns [boolean isMatch]
@@ -46,6 +43,10 @@ elseIfBranch returns [boolean isMatch]
 
 elseBranch returns [boolean isMatch]
     :   'else' '{' noblock=block '}'
+    ;
+
+returnStatement
+    : 'return' expression? (SEMICOLON| NEWLINE)?
     ;
 
 forControl
@@ -65,15 +66,20 @@ expressionList
     ;
 
 judgeExpression returns [boolean result]
-    : left=expression op=('==' | '>' | '>=' | '<' | '<=' | '<>' | '!=' ) right=expression
+    : left=atomExpression op=('==' | '>' | '>=' | '<' | '<=' | '<>' | '!=' ) right=atomExpression
+    | TRUE
+    | FALSE
+    | judgeExpression AND judgeExpression
+    | judgeExpression OR judgeExpression
     ;
 
-assign: identifier EQUAL expression (';'| NEWLINE)?# assignVariable
+assign: identifier EQUAL expression (SEMICOLON| NEWLINE)?# assignVariable
     ;
 
 expression
     : left=expression op=(PLUS | MINUS) right=multiplyingExpression #plusOrMinus
     | multiplyingExpression                                         #singlePlusOrMinus
+    | judgeExpression                                             #booleanNumber
     ;
 
 multiplyingExpression
@@ -82,11 +88,11 @@ multiplyingExpression
     ;
 
 atomExpression
-   : number       #atomNumber
+   : number         #atomNumber
    | identifier     #atomVariable
    | LPAREN expression RPAREN # paren
-   | funcExpression #atomFunction
-   | outerFunction #outerFunctionExpression
+   | funcExpression  #atomFunction
+   | outerFunction   #outerFunctionExpression
    ;
 
 funcExpression
@@ -98,15 +104,16 @@ innerFunctionName
    | 'AVERAGE'
    | 'MAX'
    | 'MIN'
+   | 'SIGNAL'
    ;
 
 outerFunction
-    : identifier LPAREN parameter (COMMA parameter)* RPAREN
+    : identifier LPAREN (parameter (COMMA parameter)*)? RPAREN
     ;
 
 parameter
-    : expression    #parameterExpression
-    | string        #parameterString
+    : expression      #parameterExpression
+    | string          #parameterString
     ;
 
 string returns [String value]
@@ -214,6 +221,10 @@ TRY           : 'try';
 VOID          : 'void';
 VOLATILE      : 'volatile';
 WHILE         : 'while';
+TRUE          : 'true' | 'TRUE' | 'True';
+FALSE         : 'false' | 'FALSE' | 'False';
+AND           : 'and' | 'AND' | 'And';
+OR            : 'or' | 'OR' | 'or';
 
 
 // §3.8 Identifiers (must appear after all keywords in the grammar)
@@ -276,5 +287,5 @@ NEWLINE
     ;
 
 SEMICOLON
-    : ';'
+    : ';' -> skip
     ;

@@ -1,8 +1,9 @@
-package com.avon.hr.expression.accounting;
+package com.avon.hr.accounting;
 
 import com.google.common.collect.Lists;
 import org.antlr.v4.runtime.tree.AbstractParseTreeVisitor;
 import org.antlr.v4.runtime.tree.RuleNode;
+import org.antlr.v4.runtime.tree.TerminalNode;
 import org.apache.log4j.Logger;
 
 import java.math.BigDecimal;
@@ -11,32 +12,34 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static com.sun.tools.javac.jvm.ByteCodes.ret;
-
 
 /**
  * Created by yangyongli on 10/16/16.
  */
 public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> implements AccountingVisitor<BigDecimal> {
     Logger logger = Logger.getLogger(MyAccountingVisitor.class);
-    private Map<String, BigDecimal> variables = null;
+    private Map<String, BigDecimal> variables = new HashMap<>();
     private boolean isTerminal = false;
-    private Map<String, CustomiseFunction> functionMap = new HashMap<String, CustomiseFunction>();
+    private Map<String, CustomiseFunction> functionMap = new HashMap<>();
+
+    public MyAccountingVisitor() {
+
+    }
 
     public MyAccountingVisitor(Map<String, BigDecimal> variables) {
         if (null != variables) {
-            this.variables = new HashMap<String, BigDecimal>(variables);
-        } else {
-            this.variables = new HashMap<String, BigDecimal>();
+            this.variables = new HashMap<>(variables);
         }
     }
 
     public MyAccountingVisitor(Map<String, BigDecimal> variables, Map<String, CustomiseFunction> functionMap) {
         this(variables);
-        this.functionMap = functionMap;
+        if (null != functionMap) {
+            this.functionMap = functionMap;
+        }
     }
 
-    public void register(String functionName, CustomiseFunction function){
+    public void register(String functionName, CustomiseFunction function) {
         this.functionMap.put(functionName, function);
     }
 
@@ -91,46 +94,27 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      */
     public BigDecimal visitIfelseStatement(AccountingParser.IfelseStatementContext ctx) {
         logger.debug("visitIfelseStatement");
-//        AccountingParser.JudgeExpressionContext judgeExpressionContext = ctx.ifjudge;
-//        BigDecimal judge = visit(judgeExpressionContext);
-//        logger.debug("judge(" + judgeExpressionContext.getText() + "):" + judge.equals(BigDecimal.ONE));
-//        if (judge.equals(BigDecimal.ONE)) {
-//            logger.debug("yesblock");
-//            return visit(ctx.yesblock);
-//        } else {
-//
-//            ctx.
-//
-//            if (ctx.noblock != null) {
-//                logger.debug("noblock");
-//                return visit(ctx.noblock);
-//            } else {
-//                //无 else 块
-//                return null;
-//            }
-//        }
-
         BigDecimal value = null;
         AccountingParser.IfBranchContext ifBranchContext = ctx.ifBranch();
         value = visit(ifBranchContext);
-        if (ifBranchContext.isMatch){
+        if (ifBranchContext.isMatch) {
             return value;
         }
 
         List<AccountingParser.ElseIfBranchContext> elseIfBranchContexts = ctx.elseIfBranch();
-        if(null != elseIfBranchContexts){
+        if (null != elseIfBranchContexts) {
             for (AccountingParser.ElseIfBranchContext elseIfBranchContext : elseIfBranchContexts) {
                 value = visit(elseIfBranchContext);
-                if (elseIfBranchContext.isMatch){
+                if (elseIfBranchContext.isMatch) {
                     return value;
                 }
             }
         }
 
         AccountingParser.ElseBranchContext elseBranchContext = ctx.elseBranch();
-        if(null != elseBranchContext){
+        if (null != elseBranchContext) {
             value = visit(elseBranchContext);
-            if(elseBranchContext.isMatch){
+            if (elseBranchContext.isMatch) {
                 return value;
             }
         }
@@ -149,7 +133,7 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
         visit(judgeExpressionContext);
         boolean isMatch = judgeExpressionContext.result;
         ctx.isMatch = isMatch;
-        if(isMatch){
+        if (isMatch) {
             logger.debug("Enter if branch: " + ctx.getText());
             return visit(ctx.block());
         }
@@ -168,7 +152,7 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
         visit(judgeExpressionContext);
         boolean isMatch = judgeExpressionContext.result;
         ctx.isMatch = isMatch;
-        if(isMatch){
+        if (isMatch) {
             logger.debug("Enter else if branch: " + ctx.getText());
             return visit(ctx.block());
         }
@@ -217,33 +201,10 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
     protected boolean shouldVisitNextChild(RuleNode node, BigDecimal currentResult) {
         if (isTerminal) {
             logger.debug("isTerminal");
-            return true;
+            return false;
         }
         return true;
     }
-
-    /**
-     * Visit a parse tree produced by the {@code breakStatement}
-     * labeled alternative in {@link AccountingParser#statement}.
-     *
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    public BigDecimal visitBreakStatement(AccountingParser.BreakStatementContext ctx) {
-        return null;
-    }
-
-    /**
-     * Visit a parse tree produced by the {@code continueStatement}
-     * labeled alternative in {@link AccountingParser#statement}.
-     *
-     * @param ctx the parse tree
-     * @return the visitor result
-     */
-    public BigDecimal visitContinueStatement(AccountingParser.ContinueStatementContext ctx) {
-        return null;
-    }
-
 
     /**
      * Visit a parse tree produced by {@link AccountingParser#statement}.
@@ -326,7 +287,7 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
 
 
     /**
-     * 判断语句
+     * 因为整个泛型用的是BigDecimal，判断语句临时1和0来表示true和false
      * BigDecimal.ONE == true
      * BigDecimal.ZREO == false
      * Visit a parse tree produced by {@link AccountingParser#judgeExpression}.
@@ -334,7 +295,56 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      * @param ctx the parse tree
      * @return the visitor result
      */
+    @Override
     public BigDecimal visitJudgeExpression(AccountingParser.JudgeExpressionContext ctx) {
+        //判断True和False字面量
+        TerminalNode aTrue = ctx.TRUE();
+        if (aTrue != null) {
+            ctx.result = true;
+            return BigDecimal.ONE;
+        }
+
+        TerminalNode aFalse = ctx.FALSE();
+        if (aFalse != null) {
+            ctx.result = false;
+            return BigDecimal.ZERO;
+        }
+
+        //判断AND和OR操作
+        TerminalNode and = ctx.AND();
+        if(and != null){
+            List<AccountingParser.JudgeExpressionContext> judgeExpressionContextList = ctx.judgeExpression();
+            for (AccountingParser.JudgeExpressionContext judgeExpressionContext : judgeExpressionContextList) {
+                BigDecimal childJudge = visit(judgeExpressionContext);
+                if(childJudge.compareTo(BigDecimal.ZERO) == 0){
+                    ctx.result = false;
+                    return BigDecimal.ZERO;
+                }
+            }
+            ctx.result = true;
+            return BigDecimal.ONE;
+        }
+
+        TerminalNode or = ctx.OR();
+        if(or != null){
+            List<AccountingParser.JudgeExpressionContext> judgeExpressionContextList = ctx.judgeExpression();
+            for (AccountingParser.JudgeExpressionContext judgeExpressionContext : judgeExpressionContextList) {
+                BigDecimal childJudge = visit(judgeExpressionContext);
+                if(childJudge.compareTo(BigDecimal.ONE) == 0){
+                    ctx.result = true;
+                    return BigDecimal.ONE;
+                }
+            }
+            ctx.result = false;
+            return BigDecimal.ZERO;
+        }
+
+        //判断比较表达式
+        if(ctx.op == null){
+            throw new RuntimeException("Unsupported compare operator.");
+        }
+
+        //TODO 对左右变量是String的要特殊处理
         BigDecimal left = visit(ctx.left);
         BigDecimal right = visit(ctx.right);
         String op = ctx.op.getText();
@@ -373,6 +383,7 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      * @param ctx the parse tree
      * @return the visitor result
      */
+    @Override
     public BigDecimal visitAssignVariable(AccountingParser.AssignVariableContext ctx) {
         logger.debug("visitAssignVariable:" + ctx.getText());
         AccountingParser.IdentifierContext identifier = ctx.identifier();
@@ -384,12 +395,25 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
     }
 
     /**
+     * Visit a parse tree produced by the {@code booleanNumber}
+     * labeled alternative in {@link AccountingParser#expression}.
+     *
+     * @param ctx the parse tree
+     * @return the visitor result
+     */
+    @Override
+    public BigDecimal visitBooleanNumber(AccountingParser.BooleanNumberContext ctx) {
+        return visit(ctx.judgeExpression());
+    }
+
+    /**
      * Visit a parse tree produced by the {@code singlePlusOrMinus}
      * labeled alternative in {@link AccountingParser#expression}.
      *
      * @param ctx the parse tree
      * @return the visitor result
      */
+    @Override
     public BigDecimal visitSinglePlusOrMinus(AccountingParser.SinglePlusOrMinusContext ctx) {
         return visitChildren(ctx);
     }
@@ -401,6 +425,7 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      * @param ctx the parse tree
      * @return the visitor result
      */
+    @Override
     public BigDecimal visitPlusOrMinus(AccountingParser.PlusOrMinusContext ctx) {
         logger.debug("visitPlusOrMinus:" + ctx.getText());
         BigDecimal leftValue = visit(ctx.left);
@@ -423,6 +448,7 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      * @param ctx the parse tree
      * @return the visitor result
      */
+    @Override
     public BigDecimal visitSingleTimesOrDiv(AccountingParser.SingleTimesOrDivContext ctx) {
         return visitChildren(ctx);
     }
@@ -434,6 +460,7 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      * @param ctx the parse tree
      * @return the visitor result
      */
+    @Override
     public BigDecimal visitTimesOrDiv(AccountingParser.TimesOrDivContext ctx) {
         logger.debug("visitTimesOrDiv:" + ctx.getText());
         BigDecimal leftValue = visit(ctx.left);
@@ -442,7 +469,7 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
         if (ctx.op.getType() == AccountingParser.TIMES) {
             result = leftValue.multiply(rightValue);
         } else {
-            result = leftValue.divide(rightValue);
+            result = leftValue.divide(rightValue, 2, RoundingMode.HALF_UP);
         }
 
         logger.debug(ctx.getText() + " : " + result);
@@ -557,6 +584,17 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
                 }
             }
             return min;
+        } else if (functionName.equals("SIGNAL")) {
+            //把boolean值转换成BigDecimal
+            BigDecimal min = null;
+            for (BigDecimal parameter : parameters) {
+                if (min == null) {
+                    min = parameter;
+                } else if (min.compareTo(parameter) > 0) {
+                    min = parameter;
+                }
+            }
+            return min;
         } else {
             throw new RuntimeException("Unsupported function [" + functionName + "]");
         }
@@ -582,7 +620,7 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
         logger.debug("visitOuterFunction:" + ctx.getText());
         String functionName = ctx.identifier().getText();
         CustomiseFunction customiseFunction = this.functionMap.get(functionName);
-        if(null == customiseFunction){
+        if (null == customiseFunction) {
             throw new RuntimeException("Unsupported function [" + functionName + "]");
         }
 
@@ -590,10 +628,10 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
 
         List<Object> parameters = Lists.newArrayList();
         for (AccountingParser.ParameterContext context : parameterContextList) {
-            if (context instanceof AccountingParser.ParameterExpressionContext){
+            if (context instanceof AccountingParser.ParameterExpressionContext) {
                 BigDecimal value = visit(context);
                 parameters.add(value);
-            }else if (context instanceof AccountingParser.ParameterStringContext){
+            } else if (context instanceof AccountingParser.ParameterStringContext) {
                 AccountingParser.StringContext stringContext = ((AccountingParser.ParameterStringContext) context).string();
                 String value = stringContext.identifier().getText();
                 parameters.add(value);
@@ -635,6 +673,7 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      * @param ctx the parse tree
      * @return the visitor result
      */
+    @Override
     public BigDecimal visitString(AccountingParser.StringContext ctx) {
         String text = ctx.identifier().getText();
         ctx.value = text;
@@ -647,6 +686,7 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      * @param ctx the parse tree
      * @return the visitor result
      */
+    @Override
     public BigDecimal visitNumber(AccountingParser.NumberContext ctx) {
         String text = ctx.getText();
         return new BigDecimal(text);
@@ -658,6 +698,7 @@ public class MyAccountingVisitor extends AbstractParseTreeVisitor<BigDecimal> im
      * @param ctx the parse tree
      * @return the visitor result
      */
+    @Override
     public BigDecimal visitIdentifier(AccountingParser.IdentifierContext ctx) {
         String variableName = ctx.getText();
         if (variables.containsKey(variableName)) {

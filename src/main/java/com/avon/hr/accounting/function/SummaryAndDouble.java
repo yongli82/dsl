@@ -1,6 +1,6 @@
-package com.avon.hr.expression.accounting.function;
+package com.avon.hr.accounting.function;
 
-import com.avon.hr.expression.accounting.CustomiseFunction;
+import com.avon.hr.accounting.CustomiseFunction;
 
 import java.math.BigDecimal;
 

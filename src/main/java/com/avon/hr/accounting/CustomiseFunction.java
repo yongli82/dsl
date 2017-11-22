@@ -1,4 +1,4 @@
-package com.avon.hr.expression.accounting;
+package com.avon.hr.accounting;
 
 import java.math.BigDecimal;
 
